@@ -33,9 +33,6 @@
   if(!form) return;
   var notice = document.getElementById("formNotice");
   var btn = form.querySelector("button[type=submit]");
-  var planSel = document.getElementById("plan");
-  var q = new URLSearchParams(location.search).get("plan");
-  if(q && planSel){ for(var i=0;i<planSel.options.length;i++){ if(planSel.options[i].value === q){ planSel.selectedIndex = i; } } }
 
   function aviso(tipo, texto){
     notice.className = "notice show " + tipo;
@@ -54,9 +51,7 @@
     }
     var fd = new FormData(form);
     var datos = {
-      nombre: fd.get("nombre"), email: fd.get("email"), whatsapp: fd.get("whatsapp"),
-      inmobiliaria: fd.get("inmobiliaria"), operaciones: fd.getAll("operaciones"),
-      consultas_mes: fd.get("consultas"), plan: fd.get("plan"), mensaje: fd.get("mensaje"),
+      nombre: fd.get("nombre"), email: fd.get("email"),
       acepta_privacidad: true, pagina: location.href, fecha: new Date().toISOString()
     };
     btn.disabled = true; var prev = btn.textContent; btn.textContent = "Enviando...";

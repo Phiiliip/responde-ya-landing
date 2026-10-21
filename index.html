@@ -107,7 +107,8 @@
     .reveal{opacity:1 !important;transform:none !important}
     .msg,.dots{opacity:1 !important;transform:none !important}
     .dots{display:none}
-    .ticker-track{animation:none !important}
+    /* La cinta de preguntas se mueve igual, despacio: es un pedido explícito y se frena al pasar el mouse. */
+    .ticker-track{animation-duration:90s !important;animation-iteration-count:infinite !important}
   }
 
   /* ---------- Progreso de scroll ---------- */
@@ -163,24 +164,13 @@
   .cta svg{width:18px;height:18px;flex:0 0 18px}
   .cta-note{margin-top:10px;font-size:13px;color:var(--mute)}
 
-  /* ---------- Fondo dinámico ---------- */
+  /* ---------- Fondo decorativo: edificios y casas ---------- */
   .night-grid{
-    position:absolute;inset:-10% -5%;z-index:0;
-    display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(6,1fr);
-    gap:clamp(6px,1.4vw,14px);
-    -webkit-mask-image:linear-gradient(to right, transparent 0%, transparent 22%, black 60%);
-    mask-image:linear-gradient(to right, transparent 0%, transparent 22%, black 60%);
-    pointer-events:none;will-change:transform;
+    position:absolute;inset:-10% -5%;z-index:0;pointer-events:none;will-change:transform;
+    background:var(--mute);opacity:.17;
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22270%22 viewBox=%220 0 520 270%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.6%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%2210%22 y=%2222%22 width=%2258%22 height=%22100%22 rx=%223%22/%3E%3Crect x=%2219%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Cpath d=%22M39 22L39 6%22/%3E%3Cpath d=%22M35 12L43 12%22/%3E%3Crect x=%2234%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%2284%22 y=%2276%22 width=%2268%22 height=%2246%22 rx=%222%22/%3E%3Cpath d=%22M78 76L118 50L158 76%22/%3E%3Crect x=%22134%22 y=%2254%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%2293%22 y=%2288%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22125%22 y=%2288%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22112%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22170%22 y=%2256%22 width=%2244%22 height=%2266%22 rx=%223%22/%3E%3Crect x=%22179%22 y=%2268%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22179%22 y=%2283.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22179%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2268%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2283.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22187%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22228%22 y=%2214%22 width=%2268%22 height=%22108%22 rx=%223%22/%3E%3Crect x=%22237%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22236%22 y=%225%22 width=%2252%22 height=%229%22 rx=%222%22/%3E%3Crect x=%22257%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22314%22 y=%2280%22 width=%2260%22 height=%2242%22 rx=%222%22/%3E%3Cpath d=%22M308 80L344 54L380 80%22/%3E%3Crect x=%22356%22 y=%2258%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22323%22 y=%2292%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22347%22 y=%2292%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22338%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22390%22 y=%2240%22 width=%2246%22 height=%2282%22 rx=%223%22/%3E%3Crect x=%22399%22 y=%2252%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2267.6667%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2283.3333%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2252%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2267.6667%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2283.3333%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22408%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22448%22 y=%2274%22 width=%2258%22 height=%2248%22 rx=%222%22/%3E%3Cpath d=%22M442 74L477 48L512 74%22/%3E%3Crect x=%22488%22 y=%2252%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22457%22 y=%2286%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22479%22 y=%2286%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Cpath d=%22M0 122L520 122%22/%3E%3Crect x=%2218%22 y=%22208%22 width=%2262%22 height=%2244%22 rx=%222%22/%3E%3Cpath d=%22M12 208L49 182L86 208%22/%3E%3Crect x=%2262%22 y=%22186%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%2227%22 y=%22220%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%2253%22 y=%22220%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%2243%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%2298%22 y=%22156%22 width=%2256%22 height=%2296%22 rx=%223%22/%3E%3Crect x=%22107%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22106%22 y=%22147%22 width=%2240%22 height=%229%22 rx=%222%22/%3E%3Crect x=%22121%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22172%22 y=%22196%22 width=%2240%22 height=%2256%22 rx=%223%22/%3E%3Crect x=%22181%22 y=%22208%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22181%22 y=%22218.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22181%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22208%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22218.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22187%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22226%22 y=%22204%22 width=%2266%22 height=%2248%22 rx=%222%22/%3E%3Cpath d=%22M220 204L259 178L298 204%22/%3E%3Crect x=%22274%22 y=%22182%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22235%22 y=%22216%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22265%22 y=%22216%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22253%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22310%22 y=%22148%22 width=%2264%22 height=%22104%22 rx=%223%22/%3E%3Crect x=%22319%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Cpath d=%22M342 148L342 132%22/%3E%3Cpath d=%22M338 138L346 138%22/%3E%3Crect x=%22337%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22392%22 y=%22210%22 width=%2256%22 height=%2242%22 rx=%222%22/%3E%3Cpath d=%22M386 210L420 184L454 210%22/%3E%3Crect x=%22430%22 y=%22188%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22401%22 y=%22222%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22426%22 y=%22222%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22414%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22462%22 y=%22182%22 width=%2244%22 height=%2270%22 rx=%223%22/%3E%3Crect x=%22471%22 y=%22194%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22211.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22194%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22211.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22479%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Cpath d=%22M0 252L520 252%22/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22520%22 height=%22270%22 viewBox=%220 0 520 270%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%221.6%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%2210%22 y=%2222%22 width=%2258%22 height=%22100%22 rx=%223%22/%3E%3Crect x=%2219%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2219%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2234.5%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2234%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2250.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2266.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2282.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%2250%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Cpath d=%22M39 22L39 6%22/%3E%3Cpath d=%22M35 12L43 12%22/%3E%3Crect x=%2234%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%2284%22 y=%2276%22 width=%2268%22 height=%2246%22 rx=%222%22/%3E%3Cpath d=%22M78 76L118 50L158 76%22/%3E%3Crect x=%22134%22 y=%2254%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%2293%22 y=%2288%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22125%22 y=%2288%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22112%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22170%22 y=%2256%22 width=%2244%22 height=%2266%22 rx=%223%22/%3E%3Crect x=%22179%22 y=%2268%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22179%22 y=%2283.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22179%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2268%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2283.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22196%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22187%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22228%22 y=%2214%22 width=%2268%22 height=%22108%22 rx=%223%22/%3E%3Crect x=%22237%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22237%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22257.5%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2226%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2244.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2262.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2280.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22278%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22236%22 y=%225%22 width=%2252%22 height=%229%22 rx=%222%22/%3E%3Crect x=%22257%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22314%22 y=%2280%22 width=%2260%22 height=%2242%22 rx=%222%22/%3E%3Cpath d=%22M308 80L344 54L380 80%22/%3E%3Crect x=%22356%22 y=%2258%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22323%22 y=%2292%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22347%22 y=%2292%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22338%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22390%22 y=%2240%22 width=%2246%22 height=%2282%22 rx=%223%22/%3E%3Crect x=%22399%22 y=%2252%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2267.6667%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2283.3333%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22399%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2252%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2267.6667%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2283.3333%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22418%22 y=%2299%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22408%22 y=%22109%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22448%22 y=%2274%22 width=%2258%22 height=%2248%22 rx=%222%22/%3E%3Cpath d=%22M442 74L477 48L512 74%22/%3E%3Crect x=%22488%22 y=%2252%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22457%22 y=%2286%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22479%22 y=%2286%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22104%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Cpath d=%22M0 122L520 122%22/%3E%3Crect x=%2218%22 y=%22208%22 width=%2262%22 height=%2244%22 rx=%222%22/%3E%3Cpath d=%22M12 208L49 182L86 208%22/%3E%3Crect x=%2262%22 y=%22186%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%2227%22 y=%22220%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%2253%22 y=%22220%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%2243%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%2298%22 y=%22156%22 width=%2256%22 height=%2296%22 rx=%223%22/%3E%3Crect x=%22107%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22107%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22121.5%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22168%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22183.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22198.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22213.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22136%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22106%22 y=%22147%22 width=%2240%22 height=%229%22 rx=%222%22/%3E%3Crect x=%22121%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22172%22 y=%22196%22 width=%2240%22 height=%2256%22 rx=%223%22/%3E%3Crect x=%22181%22 y=%22208%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22181%22 y=%22218.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22181%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22208%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22218.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22194%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22187%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22226%22 y=%22204%22 width=%2266%22 height=%2248%22 rx=%222%22/%3E%3Cpath d=%22M220 204L259 178L298 204%22/%3E%3Crect x=%22274%22 y=%22182%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22235%22 y=%22216%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22265%22 y=%22216%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22253%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22310%22 y=%22148%22 width=%2264%22 height=%22104%22 rx=%223%22/%3E%3Crect x=%22319%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22319%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22337.5%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22160%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22177.25%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22194.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22211.75%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22356%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Cpath d=%22M342 148L342 132%22/%3E%3Cpath d=%22M338 138L346 138%22/%3E%3Crect x=%22337%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Crect x=%22392%22 y=%22210%22 width=%2256%22 height=%2242%22 rx=%222%22/%3E%3Cpath d=%22M386 210L420 184L454 210%22/%3E%3Crect x=%22430%22 y=%22188%22 width=%228%22 height=%2214%22 rx=%221%22/%3E%3Crect x=%22401%22 y=%22222%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22426%22 y=%22222%22 width=%2212%22 height=%2212%22 rx=%221.5%22/%3E%3Crect x=%22414%22 y=%22234%22 width=%2212%22 height=%2218%22 rx=%222%22/%3E%3Crect x=%22462%22 y=%22182%22 width=%2244%22 height=%2270%22 rx=%223%22/%3E%3Crect x=%22471%22 y=%22194%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22211.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22471%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22194%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22211.5%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22488%22 y=%22229%22 width=%229%22 height=%2211%22 rx=%221.5%22/%3E%3Crect x=%22479%22 y=%22239%22 width=%2210%22 height=%2213%22 rx=%222%22/%3E%3Cpath d=%22M0 252L520 252%22/%3E%3C/svg%3E");-webkit-mask-size:520px 270px;mask-size:520px 270px;-webkit-mask-repeat:repeat;mask-repeat:repeat;
   }
-  @media(max-width:900px){
-    .night-grid{-webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 35%, black 70%, transparent 100%);mask-image:linear-gradient(to bottom, transparent 0%, black 35%, black 70%, transparent 100%)}
-  }
-  .night-grid i{display:block;border-radius:2px;background:var(--hairline);opacity:.55}
-  .night-grid i.lit{animation:winkle 6s ease-in-out infinite}
-  @keyframes winkle{0%,100%{background:var(--hairline);opacity:.5}45%,55%{background:var(--accent);opacity:.95}}
-  .warm{background:var(--grain),linear-gradient(180deg,var(--paper),color-mix(in srgb,var(--paper) 70%,var(--canvas-soft)))}
-  .night-grid--footer{inset:0;opacity:.5;-webkit-mask-image:none;mask-image:none}
-  .night-grid--footer i.lit{animation-play-state:paused;background:var(--accent);opacity:.35}
+  @media(max-width:700px){.night-grid{opacity:.12;-webkit-mask-size:380px 198px;mask-size:380px 198px}}
 
   /* ---------- Teléfono (hero y sticky) ---------- */
   .phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:1}
@@ -214,9 +204,9 @@
   .ticker{border-block:1px solid var(--hairline);background:var(--canvas);overflow:hidden;padding-block:14px}
   .ticker-label{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);text-align:center;margin-bottom:10px}
   .ticker-mask{overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent);mask-image:linear-gradient(to right,transparent,black 8%,black 92%,transparent)}
-  .ticker-track{display:flex;gap:12px;width:max-content;animation:slide 48s linear infinite}
+  .ticker-track{display:flex;gap:12px;width:max-content;animation:slide 60s linear infinite}
   .ticker:hover .ticker-track{animation-play-state:paused}
-  @keyframes slide{to{transform:translateX(calc(-50% - 6px))}}
+  @keyframes slide{from{transform:translateX(calc(-25% - 3px))}to{transform:translateX(0)}}
   .ticker-track span{
     flex:0 0 auto;font-size:14px;color:var(--ink);padding:8px 14px;border-radius:var(--r-md);
     background:var(--canvas-soft);box-shadow:0 0 0 1px var(--hairline);white-space:nowrap;
@@ -256,9 +246,12 @@
 
   /* ---------- Cuellos de botella ---------- */
   .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--hairline)}
-  .compare-row:first-child{padding-top:0}
+  .compare-head{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:12px;border-bottom:1px solid var(--ink);font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .compare-head span:first-child{color:var(--mute)}
+  .compare-head span:last-child{color:var(--mark)}
+  .compare-row:first-child{padding-top:20px}
   .compare-row:last-child{border-bottom:none;padding-bottom:0}
-  @media(max-width:640px){.compare-row{grid-template-columns:1fr;gap:6px}}
+  @media(max-width:640px){.compare-head{display:none}.compare-row{grid-template-columns:1fr;gap:10px}.compare-col::before{content:attr(data-l);display:block;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--mark);margin-bottom:4px}.compare-old::before{color:var(--mute)}}
   .compare-col{font-size:15.5px;line-height:1.5}
   .compare-old{color:var(--mute)}
   .compare-new{color:var(--ink)}
@@ -380,7 +373,7 @@
   .plan .para{font-size:14.5px;color:var(--body-c);min-height:3.2em}
   .plan .precio{font-size:clamp(26px,3vw,34px);font-weight:600;letter-spacing:-0.04em}
   .plan .precio small{font-size:14px;font-weight:400;color:var(--mute);letter-spacing:0}
-  .plan .vol{font-family:var(--font-mono);font-size:12px;color:var(--mark)}
+  .plan .vol{font-size:clamp(20px,2.2vw,24px);font-weight:600;letter-spacing:-0.035em;line-height:1.15;color:var(--mark)}
   .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;padding-top:14px;border-top:1px solid var(--hairline);margin-bottom:6px}
   .plan li{font-size:14.5px;display:flex;gap:10px;color:var(--ink)}
   .plan li::before{content:"";flex:0 0 7px;height:7px;border-radius:var(--r-full);background:var(--brand);margin-top:8px}
@@ -409,6 +402,15 @@
 
   /* ---------- Demo interactiva ---------- */
   .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .res{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .res li{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px #E6DED6;color:#111B21;font-size:13.5px}
+  .res li b{font-weight:600}
+  .res li span{color:#5B6770;font-size:12.5px}
+  .res li em{font-style:normal;color:#A4161A;font-weight:600;font-size:13px}
+  .cta.demo-cta{background:linear-gradient(135deg,#E5383B,#A4161A);color:#fff;font-weight:700;gap:10px;position:relative;box-shadow:0 10px 26px -8px rgba(229,56,59,.8)}
+  .cta.demo-cta svg{width:18px;height:18px;flex:0 0 18px}
+  .cta.demo-cta::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(229,56,59,.55);animation:pulsoDemo 2.2s ease-out infinite;pointer-events:none}
+  @keyframes pulsoDemo{to{box-shadow:0 0 0 14px rgba(229,56,59,0)}}
   .cta.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--hairline)}
   .cta.ghost:hover{box-shadow:inset 0 0 0 1px var(--ink);transform:none}
   .demo{display:grid;grid-template-columns:380px 1fr;gap:44px;align-items:start}
@@ -423,6 +425,15 @@
   .demo-chat .dots{opacity:1}
   .demo-hint{margin:auto;text-align:center;font-size:13px;color:#757575;max-width:24ch}
   @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .demo-step{font-size:12.5px;color:#5B6770;background:#fff;border-top:1px solid #ECE6E0;padding:8px 14px;margin:0;text-align:center}
+  .demo-form.lista button{animation:pulsoEnviar 1.6s ease-in-out infinite}
+  .demo-form button:disabled{opacity:.45;cursor:default}
+  .demo-form input[readonly]{cursor:default;text-overflow:ellipsis}
+  .dcard dl div.nuevo{animation:filaNueva 1.4s var(--ease)}
+  .dcard .vacio{color:var(--mute);font-size:14px}
+  @keyframes pulsoEnviar{0%,100%{box-shadow:0 0 0 0 rgba(229,56,59,.55)}50%{box-shadow:0 0 0 9px rgba(229,56,59,0)}}
+  @keyframes filaNueva{0%{background:rgba(229,56,59,.18);transform:translateY(6px);opacity:0}25%{opacity:1;transform:none}100%{background:transparent}}
+  @media(prefers-reduced-motion:reduce){.demo-form.lista button,.dcard dl div.nuevo{animation:none}}
   .demo-quick{display:flex;gap:6px;overflow-x:auto;padding:8px 10px;background:#fff;border-top:1px solid #ECE6E0}
   .demo-quick button{flex:0 0 auto;font:inherit;font-size:12.5px;color:#111B21;background:#fff;border:1px solid #D9D2CB;border-radius:var(--r-pill);padding:6px 11px;cursor:pointer;white-space:nowrap}
   .demo-quick button:hover{border-color:var(--brand);color:var(--brand)}
@@ -443,10 +454,6 @@
   .temp[data-n="0"]{background:var(--hairline);color:var(--body-c)}
   .temp[data-n="1"]{box-shadow:inset 0 0 0 1px var(--mark);color:var(--mark)}
   .temp[data-n="2"]{background:var(--brand);color:#fff}
-  .dlog{list-style:none;display:flex;flex-direction:column;gap:9px;max-height:210px;overflow:auto}
-  .dlog li{display:flex;gap:12px;font-size:14px;animation:msgIn .3s var(--ease)}
-  .dlog time{font-family:var(--font-mono);font-size:12px;color:var(--mark);flex:0 0 42px;padding-top:1px}
-  .dlog .vacio{color:var(--mute)}
 
   /* ---------- Lo que prometemos ---------- */
   .promise{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -459,7 +466,6 @@
   .pcol.no li::before{content:"\00D7";color:var(--mute);font-weight:600;flex:0 0 14px}
   .pcol.no li{color:var(--body-c)}
   .sign{margin-top:18px;font-size:14px;color:var(--mute);font-family:var(--font-mono)}
-  .plan .trial{font-size:13px;color:var(--body-c);margin-top:-6px}
 
   /* ---------- Botón flotante y aviso ---------- */
   .wa-float{position:fixed;right:18px;bottom:18px;z-index:70;width:54px;height:54px;border-radius:var(--r-full);background:var(--accent);display:grid;place-items:center;box-shadow:0 8px 24px rgba(164,22,26,.4);text-decoration:none;transition:transform .15s ease}
@@ -506,11 +512,10 @@
     <nav class="navlinks" aria-label="Principal">
       <a href="#marca">La marca</a>
       <a href="#que-hace">Qué hace</a>
-      <a href="#demo">Probar</a>
-      <a href="#por-que">Por qué RespondeYA</a>
+      <a href="demo.html">Probar</a>
       <a href="#planes">Planes</a>
       <a href="#faq">Preguntas</a>
-      <a class="navcta" href="empezar.html">Probar 14 días</a>
+      <a class="navcta" href="empezar.html">Empezar</a>
     </nav>
   </div>
 </header>
@@ -522,25 +527,24 @@
   <div class="wide">
     <div class="grid">
       <div>
-        <span class="stamp"><i></i>23:52 · alguien está escribiendo</span>
-        <h1>Vos dormís. Alguien te está preguntando si el departamento sigue disponible.</h1>
-        <p class="lede">RespondeYA es un agente de WhatsApp para inmobiliarias. Atiende cada consulta cuando llega, ya sea de un alquiler, de una venta o de un emprendimiento en pozo.</p>
-        <p class="caption">Esto de al lado es una conversación de ejemplo</p>
+        <span class="stamp"><i></i>23:52 · consulta entrante</span>
+        <h1>Respondé cada consulta de WhatsApp en el momento en que llega.</h1>
+        <p class="lede">RespondeYA es un agente de WhatsApp para inmobiliarias. Atiende cada consulta al instante, califica al interesado y agenda la visita, ya sea de un alquiler, una venta o un emprendimiento en pozo.</p>
         <div class="cta-row">
         <a class="cta" id="ctaHero" href="#" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" stroke="white" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.6 1.6.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1 1-.3 1.9-.4.9-2.1 1.7-2.8 1.7-.7 0-1.6-.1-3.6-1.1-2.9-1.4-4.6-4.3-4.8-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.8-2.1 1-2.4z" fill="white"/></svg>
-          Hablar con el agente ahora
+          Hablar por WhatsApp
         </a>
-        <a class="cta ghost" href="#demo">Probar la demo</a>
+        <a class="cta demo-cta" href="demo.html"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.8"/><path d="M10 8.2v7.6l6-3.8z" fill="white"/></svg>Probar la demo</a>
         </div>
-        <p class="cta-note">14 días de prueba, sin cobro inicial y sin permanencia.</p>
+        <p class="cta-note">Sin permanencia: cambiás o cancelás cuando quieras.</p>
       </div>
 
       <div class="phone-wrap reveal">
         <div class="stage">
         <div class="float lead" aria-hidden="true">
           <div class="float-top"><b>Martín G.</b><span class="chip">Interés alto</span></div>
-          <dl><div><dt>Busca</dt><dd>2 amb · Palermo</dd></div><div><dt>Operación</dt><dd>Compra</dd></div><div><dt>Para</dt><dd>Mudarse</dd></div></dl>
+          <dl><div><dt>Busca</dt><dd>Alquiler</dd></div><div><dt>Zona</dt><dd>Caballito</dd></div><div><dt>Ambientes</dt><dd>Por definir</dd></div></dl>
         </div>
         <div class="phone" id="phoneAnim">
           <div class="phone-head">
@@ -551,9 +555,9 @@
             </div>
           </div>
           <div class="phone-body">
-            <div class="msg in m1">Hola, ¿el 2 ambientes de Palermo sigue disponible?</div>
+            <div class="msg in m1">Hola, quiero alquilar algo por la zona de Caballito</div>
             <div class="dots d1"><i></i><i></i><i></i></div>
-            <div class="msg out m2">¡Hola! Sí, sigue disponible. Son 52 m² con balcón. ¿Lo buscás para alquilar o para comprar?</div>
+            <div class="msg out m2">¡Hola! Tengo opciones en Caballito. ¿Cuántos ambientes buscás?</div>
           </div>
         </div>
         <div class="float agenda" aria-hidden="true">
@@ -561,14 +565,13 @@
           <div><b>Visita agendada</b><small>Sábado 11:00 · con tu asesor</small></div>
         </div>
         </div>
-        <p class="phone-note">Conversación de ejemplo · datos ilustrativos</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="ticker" aria-label="Ejemplos de consultas que llegan fuera de horario">
-  <p class="ticker-label">Ejemplos de lo que preguntan cuando tu equipo no está</p>
+<div class="ticker" aria-label="Consultas frecuentes fuera del horario de atención">
+  <p class="ticker-label">Consultas frecuentes fuera del horario de atención</p>
   <div class="ticker-mask">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
@@ -579,21 +582,17 @@
     <div class="brand-grid">
       <div class="brand-intro reveal">
         <span class="eyebrow">La marca</span>
-        <h2>Responder ya, mientras el interesado todavía tiene el celular en la mano.</h2>
-        <p class="lede">El nombre dice lo único que importa en el primer mensaje: la velocidad. Una consulta que espera hasta el lunes es una consulta que se enfría, y atenderlas a mano es el cuello de botella de casi cualquier inmobiliaria.</p>
+        <h2>Responde ya, mientras el interesado todavía tiene el celular en la mano.</h2>
+        <p class="lede">El primer mensaje de un interesado define si la conversación continúa. Una consulta que espera hasta el lunes pierde fuerza, y atenderlas manualmente suele ser el principal cuello de botella de una inmobiliaria.</p>
       </div>
       <div class="reveal-group">
         <div class="pillar reveal">
-          <span class="eyebrow">Intención</span>
-          <p>Que ninguna consulta se enfríe por una cuestión de horario.</p>
-        </div>
-        <div class="pillar reveal">
           <span class="eyebrow">Misión</span>
-          <p class="long">Sacarle a la inmobiliaria el cuello de botella de las consultas: atender cada mensaje cuando llega, calificar a quien escribe y dejar la visita agendada, para que tu equipo hable con interesados reales y no conteste lo mismo todo el día.</p>
+          <p class="long">Eliminar la carga operativa de la atención de consultas, para que tu inmobiliaria dedique su tiempo a desarrollar el negocio de la forma más eficiente.</p>
         </div>
         <div class="pillar reveal">
           <span class="eyebrow">Visión</span>
-          <p>Que ninguna inmobiliaria pierda un cliente por contestar tarde.</p>
+          <p>Que ninguna inmobiliaria pierda un cliente por no contar con una respuesta inmediata.</p>
         </div>
       </div>
     </div>
@@ -603,9 +602,9 @@
 <section class="roomy warm" id="dia">
   <div class="wide">
     <div class="day-head reveal">
-      <span class="eyebrow">Un día cualquiera</span>
+      <span class="eyebrow">Un día típico</span>
       <h2>Las consultas no tienen horario comercial.</h2>
-      <p class="lede">Tu equipo cubre las horas de oficina. El resto del día, el interesado espera o se va con otra inmobiliaria.</p>
+      <p class="lede">Tu equipo cubre el horario de oficina. Fuera de ese horario, el interesado espera o contacta a otra inmobiliaria.</p>
     </div>
     <div class="day reveal" id="day">
       <div class="day-row">
@@ -627,24 +626,25 @@
 <section class="roomy" id="cuellos">
   <div class="measure">
     <span class="eyebrow reveal">Cuellos de botella</span>
-    <h2 class="reveal" style="margin-bottom:14px">Dónde se traba una inmobiliaria.</h2>
+    <h2 class="reveal" style="margin-bottom:14px">¿Dónde ocurre la mayor pérdida de tiempo?</h2>
     <p class="lede reveal" style="margin-bottom:32px">Alquiler, venta o un emprendimiento en pozo: cambian las preguntas, pero el cuello de botella es el mismo.</p>
+    <div class="compare-head reveal" aria-hidden="true"><span>Hoy</span><span>Con RespondeYA</span></div>
     <div class="reveal-group">
       <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Hoy</span>Las consultas que llegan fuera de horario esperan hasta el día siguiente.</div>
-        <div class="compare-col compare-new"><span class="compare-label">Con RespondeYA</span>Se contestan en segundos, a cualquier hora.</div>
+        <div class="compare-col compare-old" data-l="Hoy">Las consultas fuera de horario esperan hasta el día siguiente.</div>
+        <div class="compare-col compare-new" data-l="Con RespondeYA">Se contestan en segundos, a cualquier hora.</div>
       </div>
       <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Hoy</span>El equipo contesta todo el día lo mismo: disponibilidad, precio, requisitos.</div>
-        <div class="compare-col compare-new"><span class="compare-label">Con RespondeYA</span>El agente lo contesta y tu equipo se ocupa de las visitas y del cierre.</div>
+        <div class="compare-col compare-old" data-l="Hoy">El equipo responde todo el día las mismas preguntas: disponibilidad, precio y requisitos.</div>
+        <div class="compare-col compare-new" data-l="Con RespondeYA">El agente las responde y tu equipo se dedica a las visitas y al cierre.</div>
       </div>
       <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Hoy</span>Una propiedad se vende o cambia de precio y el interesado recibe información vieja.</div>
-        <div class="compare-col compare-new"><span class="compare-label">Con RespondeYA</span>Actualizás la propiedad y el agente informa lo nuevo, o deriva si no tiene el dato.</div>
+        <div class="compare-col compare-old" data-l="Hoy">Una propiedad se vende o cambia de precio y el interesado recibe información desactualizada.</div>
+        <div class="compare-col compare-new" data-l="Con RespondeYA">Actualizás la propiedad y el agente informa el cambio; si no tiene el dato, deriva.</div>
       </div>
       <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Hoy</span>El asesor llega a la visita sin saber qué busca el interesado.</div>
-        <div class="compare-col compare-new"><span class="compare-label">Con RespondeYA</span>Recibe un resumen: qué busca, para qué y cuándo puede.</div>
+        <div class="compare-col compare-old" data-l="Hoy">El asesor llega a la visita sin conocer qué busca el interesado.</div>
+        <div class="compare-col compare-new" data-l="Con RespondeYA">Recibe un resumen: qué busca, para qué y cuándo puede.</div>
       </div>
     </div>
   </div>
@@ -654,22 +654,22 @@
   <div class="wide">
     <div class="calc reveal">
       <div class="calc-copy">
-        <span class="eyebrow">Hacé la cuenta</span>
-        <h2>¿Cuánto vale una consulta que nadie contesta a tiempo?</h2>
-        <p class="lede">Poné tus números. Es una cuenta con tus datos, no una promesa de resultado.</p>
+        <span class="eyebrow">Calculá el impacto</span>
+        <h2>¿Cuánto cuesta una consulta sin respuesta a tiempo?</h2>
+        <p class="lede">Ingresá tus propios números. Es un cálculo con tus datos, no una promesa de resultados.</p>
       </div>
       <div class="calc-box">
-        <label for="c1">Consultas fuera de horario por mes <output id="o1">60</output></label>
+        <label for="c1">Leads mensuales fuera del horario laboral <output id="o1">60</output></label>
         <input type="range" id="c1" min="0" max="500" step="5" value="60">
-        <label for="c2">De cada 100 consultas, cuántas terminan en operación <output id="o2">3</output></label>
+        <label for="c2">Ratio de conversión <output id="o2">3</output></label>
         <input type="range" id="c2" min="0" max="30" step="1" value="3">
-        <label for="c3">Honorarios promedio por operación (USD) <output id="o3">1.500</output></label>
+        <label for="c3">Ingreso promedio por operación (USD) <output id="o3">1.500</output></label>
         <input type="range" id="c3" min="0" max="10000" step="100" value="1500">
         <div class="calc-out">
-          <div><span>Operaciones en juego por mes</span><b id="r1">1,8</b></div>
-          <div><span>Honorarios en juego por mes</span><b id="r2">USD 2.700</b></div>
+          <div><span>Operaciones en riesgo por mes</span><b id="r1">1,8</b></div>
+          <div><span>Honorarios en riesgo por mes</span><b id="r2">USD 2.700</b></div>
         </div>
-        <p class="calc-note">Valores de ejemplo, cambialos por los tuyos. Es lo que quedaría en juego si ninguna de esas consultas recibiera respuesta a tiempo.</p>
+        <p class="calc-note">Valores de ejemplo: reemplazalos por los tuyos. Es lo que estaría en riesgo si ninguna de esas consultas recibiera respuesta a tiempo.</p>
       </div>
     </div>
   </div>
@@ -679,29 +679,39 @@
   <div class="wide">
     <div class="day-head reveal" style="margin-bottom:24px">
       <span class="eyebrow">Qué hace</span>
-      <h2>Cuatro cosas, en el orden en que pasan.</h2>
+      <h2>El proceso, paso a paso.</h2>
     </div>
     <div class="qh">
       <div class="qh-steps" id="qhSteps">
         <div class="step-item active" data-scene="0">
           <span class="n">01</span>
           <h3>Responde en segundos, a cualquier hora</h3>
-          <p>Un feriado a la madrugada cuenta igual que un martes a la tarde. El interesado no espera hasta el lunes para tener una respuesta.</p>
+          <p>Un feriado de madrugada recibe la misma atención que un martes por la tarde. El interesado no espera al lunes para obtener una respuesta.</p>
         </div>
         <div class="step-item" data-scene="1">
           <span class="n">02</span>
-          <h3>Separa al curioso del interesado real</h3>
-          <p>Pregunta si busca alquilar o comprar, y para qué, y le muestra la propiedad que corresponde a cada caso.</p>
+          <h3>Califica al interesado</h3>
+          <p>Consulta lo relevante: zona, ambientes, rango de precio, balcón, mascotas y amenities. Así identifica qué busca realmente.</p>
         </div>
         <div class="step-item" data-scene="2">
           <span class="n">03</span>
-          <h3>Agenda la visita</h3>
-          <p>Propone horarios concretos en vez de preguntar cuándo puede. Se agenda mucho más así.</p>
+          <h3>Presenta opciones acordes</h3>
+          <p>Presenta las propiedades que cumplen con lo solicitado, con los datos clave de cada una.</p>
         </div>
         <div class="step-item" data-scene="3">
           <span class="n">04</span>
-          <h3>Le deja el resumen a tu asesor</h3>
-          <p>Cuando alguien pide hablar con una persona, lo deriva con todo el contexto. Nadie repite la conversación desde cero.</p>
+          <h3>Agenda la visita</h3>
+          <p>Ofrece rangos de horarios disponibles en lugar de preguntar cuándo puede.</p>
+        </div>
+        <div class="step-item" data-scene="4">
+          <span class="n">05</span>
+          <h3>Deriva al asesor a cargo</h3>
+          <p>Entrega al asesor la ficha completa: qué busca, su presupuesto y cuándo visita. Nadie repite la conversación desde cero.</p>
+        </div>
+        <div class="step-item" data-scene="5">
+          <span class="n">06</span>
+          <h3>El interesado recibe toda la información</h3>
+          <p>Recibe un resumen de la vivienda, quién lo atiende, cuándo y dónde, y llega a la visita informado.</p>
         </div>
       </div>
       <div class="qh-phone">
@@ -715,83 +725,6 @@
           </div>
           <div class="phone-body" id="qhBody"></div>
         </div>
-        <p class="phone-note" style="margin-top:12px">Conversación de ejemplo · datos ilustrativos</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="roomy" id="demo">
-  <div class="wide">
-    <div class="day-head reveal">
-      <span class="eyebrow">Probalo</span>
-      <h2>Hablá con el agente.</h2>
-      <p class="lede">Elegí una operación y escribí como si fueras un interesado. Es una demo guionada: las respuestas están escritas de antemano y no usan ningún modelo de IA. El agente real contesta con tus propiedades.</p>
-    </div>
-    <div class="demo reveal">
-      <div class="demo-main">
-        <div class="demo-tabs" id="dTabs" role="tablist" aria-label="Tipo de operación">
-          <button type="button" role="tab" data-op="alquiler" aria-selected="true">Alquiler</button>
-          <button type="button" role="tab" data-op="venta" aria-selected="false">Venta</button>
-          <button type="button" role="tab" data-op="pozo" aria-selected="false">Pozo</button>
-        </div>
-        <div class="phone dphone">
-          <div class="phone-head">
-            <div class="phone-ava"></div>
-            <div><div class="phone-name">Tu inmobiliaria</div><div class="phone-state">en línea</div></div>
-          </div>
-          <div class="demo-chat" id="dChat" aria-live="polite"></div>
-          <div class="demo-quick" id="dQuick"></div>
-          <form class="demo-form" id="dForm" autocomplete="off">
-            <input id="dInput" type="text" placeholder="Escribí un mensaje" aria-label="Escribí un mensaje">
-            <button type="submit" aria-label="Enviar">&#10148;</button>
-          </form>
-        </div>
-        <button type="button" class="demo-reset" id="dReset">Empezar de nuevo</button>
-        <p class="demo-note">Datos de ejemplo. Ninguna propiedad ni precio es real.</p>
-      </div>
-      <aside class="demo-side">
-        <div class="dcard"><h4>Propiedad cargada</h4><p class="ptitle" id="dPropTitle"></p><dl id="dProp"></dl></div>
-        <div class="dcard"><h4>Ficha del interesado</h4><dl id="dFicha"></dl></div>
-        <div class="dcard"><h4>Lo que hizo el agente</h4><ol class="dlog" id="dLog"></ol></div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="roomy" id="por-que">
-  <div class="wide">
-    <div class="day-head reveal">
-      <span class="eyebrow">Por qué RespondeYA</span>
-      <h2>Y no un bot genérico.</h2>
-      <p class="lede">Hay muchos agentes de WhatsApp. Esto es lo que hace distinto a este.</p>
-    </div>
-    <div class="why reveal-group">
-      <article class="why-card reveal"><h3>Pensado para inmobiliarias</h3><p>Califica según la operación: alquiler, venta o pozo. Pregunta lo que importa en cada caso y deja la visita agendada.</p><small><b>Un bot genérico suele</b> contestar con un guion único para cualquier rubro.</small></article>
-      <article class="why-card reveal"><h3>Lo armamos con vos</h3><p>Hablás con quien lo configura. Se carga con tus propiedades y con tu manera de contestar.</p><small><b>Un bot genérico suele</b> dejarte la configuración a vos, sola, en un panel.</small></article>
-      <article class="why-card reveal"><h3>No inventa</h3><p>Informa solo lo que cargaste. Si no tiene el dato, lo dice y deriva la conversación a una persona.</p><small><b>Un bot genérico suele</b> improvisar una respuesta para no quedar mal.</small></article>
-      <article class="why-card reveal"><h3>Tu número, tus datos</h3><p>Se instala en tu WhatsApp Business. Los datos de tu inmobiliaria quedan separados de los de otros clientes. <a href="proteccion-de-datos.html">Cómo los protegemos</a>.</p><small><b>Un bot genérico puede</b> mezclar configuraciones y datos entre cuentas.</small></article>
-    </div>
-    <div class="day-head reveal" style="margin:64px 0 24px">
-      <h2 style="font-size:clamp(20px,2.6vw,28px)">Y contra sumar a una persona.</h2>
-      <p class="lede" style="margin-top:12px">Una persona hace cosas que el agente no hace, como negociar y cerrar. Para atender consultas a toda hora, la cuenta cambia.</p>
-    </div>
-    <div class="reveal-group">
-      <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Una persona · horario</span>De oficina, con vacaciones, feriados y días de enfermedad.</div>
-        <div class="compare-col compare-new"><span class="compare-label">RespondeYA · horario</span>Las 24 horas, todos los días.</div>
-      </div>
-      <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Una persona · volumen</span>Una consulta por vez.</div>
-        <div class="compare-col compare-new"><span class="compare-label">RespondeYA · volumen</span>Todas las que lleguen al mismo tiempo.</div>
-      </div>
-      <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Una persona · alcance</span>Atiende, negocia y cierra.</div>
-        <div class="compare-col compare-new"><span class="compare-label">RespondeYA · alcance</span>Atiende, califica y agenda. El cierre es de tu equipo.</div>
-      </div>
-      <div class="compare-row reveal">
-        <div class="compare-col compare-old"><span class="compare-label">Una persona · costo</span>Un sueldo y cargas sociales.</div>
-        <div class="compare-col compare-new"><span class="compare-label">RespondeYA · costo</span>Un plan mensual por volumen de conversaciones.</div>
       </div>
     </div>
   </div>
@@ -800,11 +733,11 @@
 <section class="roomy" id="como-funciona">
   <div class="measure">
     <span class="eyebrow reveal">Cómo funciona</span>
-    <h2 class="reveal" style="margin-bottom:28px">De la primera charla al agente andando.</h2>
+    <h2 class="reveal" style="margin-bottom:28px">De la primera reunión al agente en funcionamiento.</h2>
     <div class="steps reveal-group">
-      <div class="step reveal"><span class="n">01</span><div><h3>Hablás con nosotros por WhatsApp</h3><p>El mismo canal que va a usar el agente con tus interesados. Contanos cómo trabajás hoy y dónde se te traban las consultas.</p></div></div>
-      <div class="step reveal"><span class="n">02</span><div><h3>En 1 a 2 semanas está andando</h3><p>Se conecta a tu número de WhatsApp Business y se carga con tus propiedades reales, con sus precios y condiciones.</p></div></div>
-      <div class="step reveal"><span class="n">03</span><div><h3>Vos seguís vendiendo</h3><p>El agente atiende lo que hoy se contesta tarde o no se contesta. Las visitas y el cierre siguen siendo cosa tuya.</p></div></div>
+      <div class="step reveal"><span class="n">01</span><div><h3>Conversamos por WhatsApp</h3><p>El mismo canal que usará el agente con tus interesados. Nos contás cómo trabajás hoy y en qué punto se demoran las consultas.</p></div></div>
+      <div class="step reveal"><span class="n">02</span><div><h3>En 1 a 2 semanas está en funcionamiento</h3><p>Se conecta a tu número de WhatsApp Business y se carga con tus propiedades reales, con sus precios y condiciones.</p></div></div>
+      <div class="step reveal"><span class="n">03</span><div><h3>Tu equipo sigue vendiendo</h3><p>El agente atiende las consultas que hoy se responden tarde o no se responden. Las visitas y el cierre siguen a cargo de tu equipo.</p></div></div>
     </div>
   </div>
 </section>
@@ -813,36 +746,11 @@
   <div class="wide">
     <div class="day-head reveal">
       <span class="eyebrow">Planes</span>
-      <h2>Elegí por volumen de conversaciones.</h2>
-      <p class="lede">Todos incluyen el agente, la calificación y la agenda de visitas. Sin permanencia: cambiás o cancelás cuando quieras.</p>
+      <h2>Elegí tu plan según el volumen de conversaciones.</h2>
+      <p class="lede">Todos los planes incluyen lo mismo. Lo único que cambia es cuántas conversaciones por mes necesitás. Sin permanencia: cambiás o cancelás cuando quieras.</p>
     </div>
     <div class="plans reveal" id="plans"></div>
     <p class="plans-note">Una conversación es el intercambio completo con una persona por una consulta. Si superás el volumen de tu plan, te avisamos antes de cobrar de más.</p>
-  </div>
-</section>
-
-<section class="roomy" id="promesa">
-  <div class="wide">
-    <div class="day-head reveal">
-      <span class="eyebrow">Antes de empezar</span>
-      <h2>Lo que prometemos y lo que no.</h2>
-      <p class="lede">Mejor que lo sepas desde el principio.</p>
-    </div>
-    <div class="promise reveal-group">
-      <div class="pcol si reveal"><h3>Lo que sí</h3><ul>
-        <li>Contestar cada consulta cuando llega, a cualquier hora.</li>
-        <li>Informar solo lo que cargaste y derivar cuando no sabe.</li>
-        <li>Pasarle a tu asesor el resumen completo de la conversación.</li>
-        <li>Mantener tus datos separados de los de otros clientes.</li>
-        <li>Que te puedas ir cuando quieras.</li>
-      </ul></div>
-      <div class="pcol no reveal"><h3>Lo que no</h3><ul>
-        <li>Una cantidad de visitas o de operaciones cerradas.</li>
-        <li>Reemplazar a tu equipo comercial.</li>
-        <li>Contestar lo que no cargaste.</li>
-      </ul></div>
-    </div>
-    <p class="sign reveal">RespondeYA</p>
   </div>
 </section>
 
@@ -851,17 +759,17 @@
     <span class="eyebrow reveal">Preguntas</span>
     <h2 class="reveal" style="margin-bottom:28px">Lo que suelen preguntar primero.</h2>
     <div class="faq reveal-group">
-      <details class="reveal"><summary>¿Cómo funciona la prueba de 14 días?</summary><p>Cuando el agente está andando con tus propiedades, tenés 14 días corridos para usarlo sin pagar. Si lo dejás antes de que terminen, no pagás nada. Hoy no pedimos tarjeta.</p></details>
+      <details class="reveal"><summary>¿Cómo se empieza?</summary><p>Primero hablamos para entender cómo llegan hoy las consultas a tu inmobiliaria. Después cargamos tus propiedades y condiciones, conectamos el agente a tu WhatsApp Business y lo ponemos a funcionar. Antes de hablar con nosotros, podés ver cómo es una conversación en <a href="demo.html">la demo</a>.</p></details>
       <details class="reveal"><summary>¿Reemplaza a mi equipo comercial?</summary><p>No. Atiende lo que hoy se contesta tarde o directamente no se contesta. El cierre y la relación con el interesado siguen siendo de tu equipo.</p></details>
-      <details class="reveal"><summary>¿Qué pasa si el interesado quiere hablar con una persona?</summary><p>Se deriva al momento, con el resumen completo de la conversación. Tu asesor no tiene que preguntar de nuevo lo que ya se dijo.</p></details>
+      <details class="reveal"><summary>¿Qué pasa si el interesado quiere hablar con una persona?</summary><p>Se deriva de inmediato, con el resumen completo de la conversación. Tu asesor no necesita volver a preguntar lo que ya se dijo.</p></details>
       <details class="reveal"><summary>¿Puede inventar un precio o decir que algo está disponible cuando no lo está?</summary><p>El agente informa solo lo que vos le cargás. Si no tiene el dato, lo dice y deriva. Cuando una propiedad se vende o cambia de precio, la actualizás y el agente informa lo nuevo.</p></details>
       <details class="reveal"><summary>¿Necesito una cuenta de WhatsApp aparte?</summary><p>Sí, un número de WhatsApp Business dedicado, separado del que ya usás. Te ayudamos a prepararlo.</p></details>
       <details class="reveal"><summary>¿Sirve para alquiler, venta y emprendimientos en pozo?</summary><p>Sí. Cada tipo de operación se carga con sus propias condiciones: disponibilidad, precios, requisitos o etapa de obra.</p></details>
       <details class="reveal"><summary>¿Otras inmobiliarias ven mis datos?</summary><p>No. Los datos y la configuración de cada inmobiliaria se guardan por separado. Está explicado en <a href="proteccion-de-datos.html">Cómo protegemos tus datos</a>.</p></details>
-      <details class="reveal"><summary>¿Puedo frenarlo?</summary><p>Sí. Si tu asesor toma una conversación, el agente se hace a un lado, y podés pausarlo cuando quieras.</p></details>
+      <details class="reveal"><summary>¿Puedo pausarlo?</summary><p>Sí. Cuando un asesor toma una conversación, el agente deja de intervenir, y podés pausarlo en cualquier momento.</p></details>
       <details class="reveal"><summary>¿Qué no hace?</summary><p>No negocia el precio, no cierra operaciones ni da asesoramiento legal o financiero. Si le preguntan algo así, deriva a una persona.</p></details>
       <details class="reveal"><summary>¿Cuánto cuesta?</summary><p>Depende del plan, que se elige por volumen de conversaciones. Están en la sección <a href="#planes">Planes</a> y el precio se confirma antes de contratar.</p></details>
-      <details class="reveal"><summary>¿Crear una cuenta me compromete a algo?</summary><p>No. Dejar tus datos en <a href="empezar.html">Empezar</a> es una solicitud de contacto: te escribimos para coordinar una charla. No hay cobro ni contrato hasta que lo confirmemos los dos, y los primeros 14 días de uso son de prueba.</p></details>
+      <details class="reveal"><summary>¿Dejar mis datos me compromete a algo?</summary><p>No. Dejar tus datos en <a href="empezar.html">Empezar</a> es una solicitud de contacto: te escribimos para coordinar una reunión. No hay cobro ni contrato hasta que ambas partes lo confirmemos.</p></details>
     </div>
   </div>
 </section>
@@ -869,8 +777,8 @@
 <section>
   <div class="measure">
     <div class="warranty reveal">
-      <b>14 días de prueba. Sin permanencia.</b>
-      Cuando el agente está andando, lo usás 14 días sin cobro inicial. Si no te sirve, lo dejás y no pagás nada.
+      <b>Sin permanencia.</b>
+      No hay contrato que te ate: cambiás o cancelás cuando quieras.
     </div>
   </div>
 </section>
@@ -878,7 +786,7 @@
 <section class="close-band roomy">
   <div class="measure reveal-group" style="text-align:center">
     <h2 class="reveal">La próxima consulta puede llegar en cualquier momento.</h2>
-    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp y vemos qué se te traba hoy. Después lo probás 14 días, sin cobro inicial.</p>
+    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp para identificar dónde se demoran hoy tus consultas. Si preferís ver cómo funciona antes, probá la demo.</p>
     <a class="cta reveal" id="ctaClose" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" stroke="white" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.6 1.6.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1 1-.3 1.9-.4.9-2.1 1.7-2.8 1.7-.7 0-1.6-.1-3.6-1.1-2.9-1.4-4.6-4.3-4.8-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.8-2.1 1-2.4z" fill="white"/></svg>
       Hablar por WhatsApp
@@ -899,8 +807,7 @@
       </div>
       <nav aria-label="Producto"><h4>Producto</h4><ul>
         <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#demo">Probar la demo</a></li>
-        <li><a href="#por-que">Por qué RespondeYA</a></li>
+        <li><a href="demo.html">Probar la demo</a></li>
         <li><a href="#planes">Planes</a></li>
         <li><a href="#faq">Preguntas</a></li>
       </ul></nav>
@@ -966,9 +873,7 @@
         : '<div class="precio">' + (C.MONEDA || 'USD') + ' ' + fmt(p.precio) + ' <small>por mes</small></div>';
       return '<article class="plan' + (p.destacado ? ' destacado' : '') + '">' +
         (p.destacado ? '<span class="tag">Recomendado</span>' : '') +
-        '<h3>' + p.nombre + '</h3><p class="para">' + p.para + '</p>' + precio +
-        '<span class="vol">' + p.volumen + '</span>' +
-        '<span class="trial">' + (C.PRUEBA_DIAS || 14) + ' días de prueba sin cobro inicial</span>' +
+        '<h3>' + p.nombre + '</h3><span class="vol">' + p.volumen + '</span><p class="para">' + p.para + '</p>' + precio +
         '<ul>' + p.incluye.map(function(i){ return '<li>' + i + '</li>'; }).join('') + '</ul>' +
         '<a class="cta" href="empezar.html?plan=' + p.id + '">Elegir ' + p.nombre + '</a></article>';
     }).join('');
@@ -994,27 +899,13 @@
     calcular();
   }
 
-  // ── Fondo dinámico: grilla de ventanas ────────────────────────────────────
-  function armarGrilla(id, total, lit){
-    var host = document.getElementById(id); if(!host) return;
-    for(var i = 0; i < total; i++){
-      var c = document.createElement('i');
-      if(lit.indexOf(i) !== -1){
-        c.className = 'lit';
-        c.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
-        c.style.animationDuration = (5 + Math.random() * 5).toFixed(2) + 's';
-      }
-      host.appendChild(c);
-    }
-  }
-  armarGrilla('nightGrid', 54, [4, 9, 16, 23, 31, 38, 45, 50]);
 
   // ── Ticker de consultas ───────────────────────────────────────────────────
   var preguntas = ["¿Sigue disponible el 2 ambientes?","¿Cuánto son las expensas?","¿Aceptan mascotas?","¿Qué garantía piden?","¿Puedo verlo el sábado?","¿El precio es en dólares?","¿Se puede pagar en cuotas?","¿Cuándo entregan?"];
   var track = document.getElementById('tickerTrack');
   if(track){
     var html = preguntas.map(function(q){ return '<span>' + q + '</span>'; }).join('');
-    track.innerHTML = html + html;
+    track.innerHTML = html + html + html + html;
   }
 
   // ── Línea de tiempo del día ───────────────────────────────────────────────
@@ -1034,19 +925,26 @@
   function burbuja(b){ return '<div class="msg ' + b.d + '">' + b.t + '<span class="t">' + b.h + (b.d === 'out' ? ' ✓✓' : '') + '</span></div>'; }
   var escenas = [
     { tipo:'chat', msgs:[
-      {d:'in',  t:'Hola, ¿el 2 ambientes de Palermo sigue disponible?', h:'23:52'},
-      {d:'out', t:'¡Hola! Sí, sigue disponible. Son 52 m² con balcón. ¿Lo buscás para alquilar o para comprar?', h:'23:52'} ]},
+      {d:'in',  t:'Hola, quiero alquilar algo por la zona de Caballito', h:'23:52'},
+      {d:'out', t:'¡Hola! Tengo opciones en Caballito. Para mostrarte lo que mejor te sirve, te hago unas preguntas. ¿Cuántos ambientes buscás?', h:'23:52'} ]},
     { tipo:'chat', msgs:[
-      {d:'in',  t:'Para comprar', h:'23:53'},
-      {d:'out', t:'Perfecto. ¿Es para vivir o como inversión? Así te muestro lo que mejor te sirve.', h:'23:53'} ]},
+      {d:'in',  t:'2 ambientes, hasta $ 900.000 por mes', h:'23:53'},
+      {d:'out', t:'Anotado. ¿Lo querés con balcón? ¿Tenés mascotas? ¿Buscás algún amenity, como SUM, pileta o parrilla?', h:'23:53'} ]},
+    { tipo:'resultados', titulo:'Opciones que cumplen lo que pediste', items:[
+      ['2 amb · 52 m² con balcón', 'Pet friendly · SUM y parrilla', '$ 780.000 + $ 95.000 de expensas'],
+      ['2 amb · 48 m² con balcón', 'Pet friendly · Parrilla', '$ 850.000 + $ 70.000 de expensas'] ]},
     { tipo:'chat', msgs:[
-      {d:'in',  t:'Para vivir. ¿Lo puedo ver?', h:'23:55'},
-      {d:'out', t:'Te reservo el sábado a las 11:00 para visitarlo. Tu asesor ya recibe el resumen.', h:'23:55'} ]},
-    { tipo:'ficha', filas:[['Operación','Compra'],['Uso','Vivienda'],['Propiedad','2 ambientes, 52 m²'],['Primer contacto','23:52'],['Visita','Sábado 11:00'],['Estado','Derivado a asesor']] }
+      {d:'out', t:'Para coordinar la visita tengo disponible: sábado de 10 a 13 h, sábado de 16 a 18 h o lunes de 18 a 20 h. ¿Cuál te resulta más cómodo?', h:'23:55'},
+      {d:'in',  t:'Sábado a las 11:00', h:'23:55'},
+      {d:'out', t:'Listo, te reservo el sábado a las 11:00.', h:'23:55'} ]},
+    { tipo:'ficha', titulo:'Ficha para tu asesor', filas:[['Búsqueda','Alquiler · Caballito'],['Ambientes y presupuesto','2 amb · hasta $ 900.000'],['Balcón y mascotas','Con balcón · pet friendly'],['Amenities','SUM o parrilla'],['Propiedad elegida','2 amb · 52 m² · $ 780.000'],['Visita','Sábado 11:00'],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']] },
+    { tipo:'ficha', titulo:'Lo que recibió el interesado', filas:[['Vivienda','2 amb · 52 m² · balcón · pet friendly'],['Valor','$ 780.000 + $ 95.000 de expensas'],['Te atiende','Lucía, asesora a cargo'],['Cuándo','Sábado 11:00'],['Dónde','Av. Rivadavia 5200, Caballito']] }
   ];
   function htmlEscena(e){
     if(e.tipo === 'chat') return e.msgs.map(burbuja).join('');
-    return '<div class="card-scene"><h4>Ficha para tu asesor</h4><dl>' +
+    if(e.tipo === 'resultados') return '<div class="card-scene"><h4>' + e.titulo + '</h4><ul class="res">' +
+      e.items.map(function(r){ return '<li><b>' + r[0] + '</b><span>' + r[1] + '</span><em>' + r[2] + '</em></li>'; }).join('') + '</ul></div>';
+    return '<div class="card-scene"><h4>' + e.titulo + '</h4><dl>' +
       e.filas.map(function(f){ return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl></div>';
   }
   var body = document.getElementById('qhBody');
@@ -1072,150 +970,6 @@
     document.querySelectorAll('#qhBody .scene').forEach(function(s){ s.classList.toggle('active', +s.dataset.i === i); });
   }
 
-
-  // ── Demo interactiva (guionada, sin IA) ───────────────────────────────────
-  (function(){
-    var chat = document.getElementById('dChat'); if(!chat) return;
-    var quick = document.getElementById('dQuick'), form = document.getElementById('dForm'), input = document.getElementById('dInput');
-    var tabs = document.querySelectorAll('#dTabs button');
-    var propT = document.getElementById('dPropTitle'), propL = document.getElementById('dProp'), fichaL = document.getElementById('dFicha'), logL = document.getElementById('dLog');
-    var rapido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    var OPS = {
-      alquiler:{nombre:'Alquiler', titulo:'2 ambientes en Palermo', filas:[['Superficie','52 m² con balcón'],['Alquiler','$ 780.000 por mes'],['Expensas','$ 95.000 por mes'],['Disponible','De inmediato']],
-        chips:['Hola','¿Sigue disponible?','¿Cuánto sale?','¿Qué requisitos piden?','¿Aceptan mascotas?','Quiero verlo','Sábado 11:00','Quiero hablar con un asesor']},
-      venta:{nombre:'Venta', titulo:'3 ambientes en Caballito', filas:[['Superficie','74 m² con cochera'],['Precio','USD 138.000'],['Expensas','$ 160.000 por mes'],['Estado','Lista para escriturar']],
-        chips:['Hola','¿Sigue disponible?','¿Cuánto sale?','¿Se puede financiar?','Es para invertir','Quiero verlo','Sábado 11:00','Quiero hablar con un asesor']},
-      pozo:{nombre:'Pozo', titulo:'2 ambientes en Torres del Parque', filas:[['Superficie','52 m²'],['Desde','USD 142.000 en preventa'],['Plan','30% de anticipo y 36 cuotas'],['Entrega','Diciembre de 2028']],
-        chips:['Hola','¿Sigue disponible?','¿Cuánto sale?','¿Cuándo entregan?','¿Cómo es el plan de pago?','Es para invertir','Quiero verlo','Sábado 11:00']}
-    };
-    var SINDATO = ['Ese dato no lo tengo cargado, así que no te lo voy a inventar.','Se lo paso a un asesor para que te lo confirme.'];
-    var INTENTS = [
-      {id:'saludo', keys:['hola','buenas','buen dia','buenas tardes','buenas noches','que tal'],
-        say:{_:['¡Hola! Soy el asistente de la inmobiliaria y estoy disponible las 24 horas.','Contame qué buscás o elegí una opción de abajo.']}, log:'Respondió el saludo'},
-      {id:'disponible', keys:['disponible','disponibilidad','sigue','todavia','quedan'],
-        say:{alquiler:['Sí, el 2 ambientes de Palermo sigue disponible. Son 52 m² con balcón.','¿Querés que te cuente el valor o preferís verlo directamente?'],
-             venta:['Sí, el 3 ambientes de Caballito sigue en venta. Son 74 m² con cochera.','¿Es para vivir o como inversión?'],
-             pozo:['Sí, quedan unidades de 2 ambientes en Torres del Parque, en preventa. Son 52 m².','¿Lo buscás para vivir o como inversión?']},
-        log:'Confirmó la disponibilidad', lvl:0},
-      {id:'precio', keys:['precio','cuanto sale','cuanto cuesta','cuanto vale','cuanto es','valor','cuanto'],
-        say:{alquiler:['El alquiler es de $ 780.000 por mes, más $ 95.000 de expensas.','¿Querés que te cuente los requisitos?'],
-             venta:['El valor es de USD 138.000. Las expensas son de $ 160.000 por mes.','¿Querés que coordinemos una visita?'],
-             pozo:['Los 2 ambientes parten desde USD 142.000 en preventa.','El plan es 30% de anticipo y el resto en cuotas ajustadas. ¿Te cuento el detalle?']},
-        log:'Informó el precio que tiene cargado', lvl:1},
-      {id:'expensas', keys:['expensas'],
-        say:{alquiler:['Las expensas son de $ 95.000 por mes.'], venta:['Las expensas son de $ 160.000 por mes.'],
-             pozo:['Las expensas se definen cuando termina la obra, y hoy no tengo un valor cargado.','Se lo paso a un asesor para que te lo confirme.']},
-        log:'Informó expensas o reconoció que no tenía el dato', lvl:1},
-      {id:'requisitos', keys:['requisitos','garantia','garantias','seguro de caucion','caucion','recibo'],
-        say:{alquiler:['Piden garantía propietaria o seguro de caución, y recibos de sueldo.','¿Querés que coordinemos una visita?'],
-             _:['Eso depende de cada operación. Se lo paso a un asesor para que te lo detalle.']},
-        log:'Informó los requisitos cargados', lvl:1},
-      {id:'mascotas', keys:['mascota','mascotas','perro','perros','gato','gatos'], say:{_:SINDATO}, log:'No tenía el dato: derivó en vez de inventar', derivar:true},
-      {id:'financiacion', keys:['cuotas','financiacion','financiar','financia','anticipo','credito','hipotecario','plan de pago','como se paga','pagar'],
-        say:{pozo:['El plan es 30% de anticipo y 36 cuotas ajustadas por CAC.','El ajuste hace que el precio se sostenga hasta la entrega. ¿Querés el detalle de cuotas?'],
-             venta:['Esta propiedad acepta escritura con crédito hipotecario.','Si querés, tu asesor te explica cómo sería el esquema.'],
-             alquiler:['El alquiler se paga por mes, junto con las expensas.']},
-        log:'Explicó la forma de pago cargada', lvl:1},
-      {id:'entrega', keys:['entrega','entregan','cuando entregan','plazo','obra','etapa'],
-        say:{pozo:['La entrega estimada es diciembre de 2028. Hoy la obra está en estructura, con el subsuelo y las primeras plantas hechas.'],
-             alquiler:['Está para entrar de inmediato.'], venta:['Está lista para escriturar. Los tiempos los coordina tu asesor.']},
-        log:'Informó plazos', lvl:1},
-      {id:'ubicacion', keys:['donde','ubicacion','direccion','zona','barrio','donde queda'],
-        say:{alquiler:['Está en Palermo, cerca del subte y de la avenida.'], venta:['Está en Caballito, a pocas cuadras del parque.'], pozo:['Torres del Parque está en Núñez, a cuatro cuadras de la estación.']},
-        log:'Informó la ubicación', lvl:1},
-      {id:'vivir', keys:['vivir','mudarme','mudarse','para mi','uso propio'], uso:'Vivienda',
-        say:{_:['Perfecto, para vivir. ¿Querés que coordinemos una visita?']}, log:'Registró que busca para vivir', lvl:1},
-      {id:'invertir', keys:['invertir','inversion','renta','rentar'], uso:'Inversión',
-        say:{_:['Entendido, para inversión. Te muestro lo que conviene según las condiciones de pago. ¿Coordinamos una visita?']}, log:'Registró que busca para invertir', lvl:1},
-      {id:'visita', keys:['visita','visitar','ver','verlo','conocer','cita','turno','quiero verlo'], visita:'proponiendo horario',
-        say:{_:['Te coordino. Tengo disponible el sábado a las 11:00 o el sábado a las 16:00.','¿Cuál te queda mejor?']}, log:'Ofreció dos horarios concretos', lvl:1},
-      {id:'confirma', keys:['sabado','11','16','si','dale','me sirve','perfecto','ok','confirmo','listo'], visita:'Sábado 11:00', estado:'Visita agendada',
-        say:{_:['Listo, te reservo el sábado a las 11:00.','Tu asesor ya recibe un resumen de lo que hablamos, así no tenés que repetir nada.']}, log:'Agendó la visita y avisó al asesor', lvl:2},
-      {id:'humano', keys:['asesor','persona','humano','vendedor','hablar con alguien','llamar','telefono','quiero hablar'], estado:'Derivado a asesor',
-        say:{_:['Por supuesto. Le paso tu consulta al equipo ahora mismo.','Les dejo el resumen de lo que hablamos para que no arranquen de cero.']}, log:'Derivó a una persona con el resumen', lvl:2},
-      {id:'gracias', keys:['gracias','genial','buenisimo'], say:{_:['¡De nada! Si querés, coordinamos la visita.']}, log:'Cerró la conversación'},
-      {id:'fallback', keys:[], say:{_:['Esa no la tengo cargada y no quiero inventarte un dato.','Se la paso a un asesor para que te conteste bien. Mientras tanto, ¿querés que coordinemos una visita?']}, log:'No inventó: reconoció el límite y derivó', derivar:true}
-    ];
-
-    var op = 'alquiler', hora, st, cola = [], ocupado = false, gen = 0;
-    function norm(t){ return ' ' + t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim() + ' '; }
-    function detectar(t){
-      var n = norm(t), mejor = null, largo = 0;
-      INTENTS.forEach(function(it){ it.keys.forEach(function(k){ if(n.indexOf(' ' + k + ' ') !== -1 && k.length > largo){ largo = k.length; mejor = it; } }); });
-      return mejor || INTENTS[INTENTS.length - 1];
-    }
-    function hh(){ var h = Math.floor(hora / 60) % 24, m = hora % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
-    function nodo(tag, cls, txt){ var e = document.createElement(tag); if(cls) e.className = cls; if(txt !== undefined) e.textContent = txt; return e; }
-    function msg(d, t){
-      var m = nodo('div', 'msg ' + d, t); var h = nodo('span', 't', hh() + (d === 'out' ? ' ✓✓' : '')); m.appendChild(h);
-      chat.appendChild(m); chat.scrollTop = chat.scrollHeight;
-    }
-    function escribiendo(on){
-      var ex = document.getElementById('dDots');
-      if(!on){ if(ex) ex.remove(); return; }
-      if(ex) return;
-      var d = nodo('div', 'dots'); d.id = 'dDots'; d.innerHTML = '<i></i><i></i><i></i>';
-      chat.appendChild(d); chat.scrollTop = chat.scrollHeight;
-    }
-    function pintarFicha(){
-      var o = OPS[op];
-      var filas = [['Operación', o.nombre], ['Uso', st.uso], ['Visita', st.visita], ['Estado', st.estado]];
-      fichaL.innerHTML = '';
-      filas.forEach(function(f){ var r = nodo('div'); r.appendChild(nodo('dt', '', f[0])); r.appendChild(nodo('dd', '', f[1])); fichaL.appendChild(r); });
-      var r = nodo('div'); r.appendChild(nodo('dt', '', 'Interés'));
-      var dd = nodo('dd'); var tp = nodo('span', 'temp', ['Sin calificar', 'Medio', 'Alto'][st.lvl]); tp.dataset.n = st.lvl; dd.appendChild(tp); r.appendChild(dd); fichaL.appendChild(r);
-    }
-    function pintarProp(){
-      var o = OPS[op]; propT.textContent = o.titulo; propL.innerHTML = '';
-      o.filas.forEach(function(f){ var r = nodo('div'); r.appendChild(nodo('dt', '', f[0])); r.appendChild(nodo('dd', '', f[1])); propL.appendChild(r); });
-    }
-    function log(t){
-      var v = logL.querySelector('.vacio'); if(v) v.remove();
-      var li = nodo('li'); li.appendChild(nodo('time', '', hh())); li.appendChild(nodo('span', '', t)); logL.appendChild(li); logL.scrollTop = logL.scrollHeight;
-    }
-    function chips(){
-      quick.innerHTML = '';
-      OPS[op].chips.forEach(function(c){ var b = nodo('button', '', c); b.type = 'button'; b.addEventListener('click', function(){ enviar(c); }); quick.appendChild(b); });
-    }
-    function reiniciar(){
-      gen++; hora = 23 * 60 + 52; cola = []; ocupado = false;
-      st = {uso:'Sin determinar', visita:'Sin agendar', estado:'Conversando', lvl:0};
-      chat.innerHTML = '<p class="demo-hint" id="dHint">Escribí un mensaje o elegí una consulta de abajo para empezar.</p>';
-      logL.innerHTML = '<li class="vacio">Todavía no pasó nada.</li>';
-      pintarProp(); pintarFicha(); chips();
-    }
-    function responder(texto){
-      var h = document.getElementById('dHint'); if(h) h.remove();
-      msg('in', texto); log('Recibió: ' + (texto.length > 34 ? texto.slice(0, 34) + '…' : texto));
-      var it = detectar(texto), lineas = it.say[op] || it.say._ || SINDATO, i = 0, g = gen;
-      function paso(){
-        if(g !== gen) return; // la conversación se reinició: se descarta lo que quedó en vuelo
-        if(i >= lineas.length){
-          escribiendo(false);
-          if(it.uso) st.uso = it.uso;
-          if(it.visita) st.visita = it.visita;
-          if(it.estado) st.estado = it.estado;
-          if(it.derivar && st.estado === 'Conversando') st.estado = 'Derivado a asesor';
-          if(typeof it.lvl === 'number' && it.lvl > st.lvl) st.lvl = it.lvl;
-          hora += 1; log(it.log); pintarFicha();
-          ocupado = false; if(cola.length) setTimeout(despachar, 250); return;
-        }
-        escribiendo(true);
-        setTimeout(function(){ if(g !== gen) return; escribiendo(false); msg('out', lineas[i]); i++; setTimeout(paso, rapido ? 60 : 280); }, rapido ? 120 : 500 + Math.min(lineas[i].length * 9, 1100));
-      }
-      setTimeout(paso, rapido ? 60 : 300);
-    }
-    function despachar(){ if(ocupado || !cola.length) return; ocupado = true; responder(cola.shift()); }
-    function enviar(t){ t = (t || '').trim(); if(!t) return; cola.push(t.slice(0, 200)); if(!ocupado) despachar(); }
-
-    tabs.forEach(function(b){ b.addEventListener('click', function(){
-      op = b.dataset.op; tabs.forEach(function(x){ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); }); reiniciar();
-    }); });
-    form.addEventListener('submit', function(e){ e.preventDefault(); var v = input.value; input.value = ''; enviar(v); });
-    document.getElementById('dReset').addEventListener('click', reiniciar);
-    reiniciar();
-  })();
 
   // ── Navegación y progreso ─────────────────────────────────────────────────
   var nav = document.getElementById('nav'), prog = document.getElementById('progress'), heroGrid = document.getElementById('nightGrid');

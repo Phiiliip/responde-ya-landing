@@ -22,40 +22,36 @@ window.RESPONDEYA = {
   // Planes. "precio" en número (por mes) o null para mostrar "Consultar".
   // Los volúmenes y lo que incluye cada plan son una propuesta: ajustalos a lo
   // que realmente podés entregar, porque todo lo que figura acá es un compromiso.
-  // Días de prueba sin cobro inicial. Se cuentan desde que el agente está andando con tus propiedades.
-  PRUEBA_DIAS: 14,
-
   MONEDA: "USD",
   PLANES: [
     {
       id: "inicio",
       nombre: "Inicio",
-      para: "Para una inmobiliaria que quiere sacarse de encima las consultas básicas.",
+      para: "Para empezar a atender tus consultas por WhatsApp.",
       volumen: "Hasta 300 conversaciones por mes",
       precio: null,
       destacado: false,
       incluye: [
-        "1 número de WhatsApp Business",
+        "Tu número de WhatsApp Business",
         "Atención 24 horas",
+        "Alquiler, venta y pozo en el mismo agente",
         "Calificación de cada interesado",
         "Agenda de visitas",
         "Derivación al asesor con resumen",
-        "Carga de tus propiedades y condiciones"
+        "Carga de tus propiedades y condiciones",
+        "Soporte directo por WhatsApp"
       ]
     },
     {
       id: "crecimiento",
       nombre: "Crecimiento",
-      para: "Para el equipo que ya tiene volumen y varias operaciones a la vez.",
+      para: "Para un equipo que recibe más consultas cada mes.",
       volumen: "Hasta 1.000 conversaciones por mes",
       precio: null,
       destacado: true,
       incluye: [
         "Todo lo de Inicio",
-        "Hasta 2 números de WhatsApp Business",
-        "Alquiler, venta y pozo en el mismo agente",
-        "Ajuste mensual del guion según lo que preguntan",
-        "Soporte directo por WhatsApp"
+        "Más conversaciones por mes"
       ]
     },
     {
@@ -66,9 +62,8 @@ window.RESPONDEYA = {
       precio: null,
       destacado: false,
       incluye: [
-        "Todo lo de Crecimiento",
-        "Más números y sucursales",
-        "Configuración a medida",
+        "Todo lo de Inicio",
+        "Volumen a medida",
         "Se cotiza según tu operación"
       ]
     }
