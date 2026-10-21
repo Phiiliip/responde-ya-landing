@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phiiliip.github.io/responde-ya-landing/sitemap.xml
