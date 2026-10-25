@@ -194,6 +194,7 @@
   }
   .msg.in{background:#fff;border-top-left-radius:2px;align-self:flex-start}
   .msg.out{background:#D9FDD3;border-top-right-radius:2px;align-self:flex-end}
+  .msg{white-space:pre-line}
   .msg .t{display:block;font-family:var(--font-mono);font-size:10px;color:#8D9499;text-align:right;margin-top:3px}
   .hero .msg{opacity:0;transform:translateY(6px)}
   .dots{align-self:flex-start;background:#fff;border-radius:var(--r-sm);border-top-left-radius:2px;padding:9px 11px;display:flex;gap:4px;opacity:0}
@@ -528,7 +529,7 @@
     <div class="day-head reveal">
       <span class="eyebrow">Demo</span>
       <h1 style="font-size:clamp(30px,4.4vw,44px);letter-spacing:-0.045em;line-height:1.08">Conocé cómo atiende el agente.</h1>
-      <p class="lede">Elegí una operación y tocá enviar para recorrer una conversación típica. A la derecha se completa la ficha del interesado a medida que avanza. Es una demo guionada: los mensajes están escritos de antemano y no utilizan inteligencia artificial. El agente real responde con las propiedades de tu inmobiliaria.</p>
+      <p class="lede">Elegí una operación y tocá enviar para recorrer una conversación típica. A la derecha se completa la ficha del interesado a medida que avanza.</p>
     </div>
     <div class="demo reveal">
       <div class="demo-main">
@@ -564,7 +565,7 @@
 <section class="close-band roomy">
   <div class="measure reveal-group" style="text-align:center">
     <h2 class="reveal">La próxima consulta puede llegar en cualquier momento.</h2>
-    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp para identificar dónde se demoran hoy tus consultas. Si preferís ver cómo funciona antes, probá la demo.</p>
+    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp para identificar dónde se demoran hoy tus consultas. Si preferís ver cómo funciona antes, <a href="demo.html" style="color:inherit;text-decoration:underline">probá la demo</a>.</p>
     <a class="cta reveal" id="ctaClose" href="index.html#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" stroke="white" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.6 1.6.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1 1-.3 1.9-.4.9-2.1 1.7-2.8 1.7-.7 0-1.6-.1-3.6-1.1-2.9-1.4-4.6-4.3-4.8-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.8-2.1 1-2.4z" fill="white"/></svg>
       Hablar por WhatsApp
@@ -578,7 +579,7 @@
     <div class="foot">
       <div>
         <a class="brandlink" href="index.html#top" aria-label="RespondeYA, inicio"><svg class="iso" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#A4161A"/><path d="M14 17c0-2.2 1.8-4 4-4h28c2.2 0 4 1.8 4 4v20c0 2.2-1.8 4-4 4H26l-8.5 8v-8H18c-2.2 0-4-1.8-4-4z" fill="#fff"/><path d="M35 15 25 30h6l-2 12 13-17h-7z" fill="#A4161A"/></svg><span class="word">Responde<b>YA</b></span></a>
-        <p class="tag">El agente de WhatsApp de tu inmobiliaria.</p>
+        <p class="tag">El agente de tu inmobiliaria.</p>
         <span class="badge"><i></i>Funciona con WhatsApp Business</span>
       </div>
       <nav aria-label="Producto"><h4>Producto</h4><ul>
@@ -589,7 +590,6 @@
       </ul></nav>
       <nav aria-label="Empresa"><h4>Empresa</h4><ul>
         <li><a href="sobre.html">Sobre RespondeYA</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
         <li><a href="empezar.html">Empezar</a></li>
       </ul></nav>
       <nav aria-label="Legal"><h4>Legal</h4><ul>
@@ -628,52 +628,48 @@
 })();
 </script>
 <script>
-  // ── Demo interactiva (guionada, sin IA): un solo camino, un mensaje por paso ──
+  // ── Demo interactiva (guionada, sin IA): un solo camino, una respuesta por paso ──
   (function(){
     var chat = document.getElementById('dChat'); if(!chat) return;
     var pasoTxt = document.getElementById('dQuick'), form = document.getElementById('dForm'), input = document.getElementById('dInput'), enviarBtn = form.querySelector('button');
     var tabs = document.querySelectorAll('#dTabs button');
     var propT = document.getElementById('dPropTitle'), propL = document.getElementById('dProp'), fichaL = document.getElementById('dFicha');
     var rapido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var HORARIOS = ['Tengo disponible el sábado a las 11:00 o el sábado a las 16:00.', '¿Cuál te queda mejor?'];
-    var AGENDA = ['Listo, te reservo el sábado a las 11:00.', 'Tu asesor ya recibe un resumen de lo que hablamos, así no tenés que repetir nada.'];
+    var HORARIOS = '¿Cuál te queda mejor?';
+    var VISITA = 'Sábado 31 de octubre, 11:00';
 
     // prop: filas de "Propiedad cargada" que aparecen recién cuando el agente las usa.
     // ficha: datos del interesado que se van sumando. lvl: interés (0 sin calificar, 1 medio, 2 alto).
+    // Cada paso responde con un solo mensaje; los párrafos se separan con \n\n.
     var OPS = {
       alquiler:{nombre:'Alquiler', titulo:'2 ambientes en Caballito',
         filas:[['Superficie','52 m² con balcón'],['Mascotas','Se aceptan'],['Amenities','SUM y parrilla'],['Alquiler','$ 780.000 por mes'],['Expensas','$ 95.000 por mes']],
         pasos:[
-          {ask:'Hola, quiero alquilar algo por la zona de Caballito', say:['¡Hola! Soy el asistente de la inmobiliaria y estoy disponible las 24 horas.','Tengo opciones en Caballito. Para mostrarte lo que mejor te sirve, te hago unas preguntas.','¿Cuántos ambientes buscás?'], ficha:[['Operación','Alquiler'],['Zona','Caballito']], lvl:0},
-          {ask:'2 ambientes', say:['Perfecto, 2 ambientes.','¿Qué rango de precio tenés en mente por mes?'], ficha:[['Ambientes','2']], lvl:0},
-          {ask:'Hasta $ 900.000 por mes', say:['Anotado, hasta $ 900.000 por mes.','¿Lo querés con balcón?'], ficha:[['Presupuesto','Hasta $ 900.000']], lvl:1},
-          {ask:'Sí, con balcón', say:['Perfecto, con balcón.','¿Tenés mascotas? Así te muestro solo las que las aceptan.'], ficha:[['Balcón','Sí']], lvl:1},
-          {ask:'Tengo un perro chico, tiene que ser pet friendly', say:['Anoto: pet friendly, con un perro chico.','¿Buscás algún amenity en particular, como SUM, pileta o parrilla?'], ficha:[['Mascota','Perro chico · pet friendly']], lvl:1},
-          {ask:'Sí, que tenga SUM o parrilla', say:['Encontré 2 opciones en Caballito que cumplen con lo que pediste:','1) 2 ambientes, 52 m² con balcón, pet friendly, SUM y parrilla. $ 780.000 por mes más $ 95.000 de expensas.','2) 2 ambientes, 48 m² con balcón, pet friendly y parrilla. $ 850.000 por mes más $ 70.000 de expensas.','¿Querés ver alguna?'], prop:[0,1,2,3,4], ficha:[['Amenities','SUM o parrilla']], lvl:2},
-          {ask:'Quiero ver la primera', say:['Perfecto. Para coordinar la visita tengo disponible:','Sábado de 10 a 13 h','Sábado de 16 a 18 h','Lunes de 18 a 20 h','¿Qué día y horario te queda mejor?'], ficha:[['Propiedad elegida','La primera opción'],['Visita','Proponiendo horario']], lvl:2},
-          {ask:'Sábado a las 11:00', say:['Listo, te reservo el sábado a las 11:00.','Te comunico con Lucía, la asesora a cargo. Ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.','Te espera en Av. Rivadavia 5200, Caballito.'], ficha:[['Visita','Sábado 11:00'],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']], lvl:2}
+          {ask:'Hola, quiero alquilar algo por la zona de Caballito', say:'¡Hola! 👋\n\nTengo opciones en Caballito. Para mostrarte lo que mejor te sirve, te hago unas preguntas.\n\n¿Cuántos ambientes buscás? 🏠', ficha:[['Operación','Alquiler'],['Zona','Caballito']], lvl:0},
+          {ask:'2 ambientes', say:'¿Cuál es tu límite de presupuesto por mes? 💰\n\nTomo el total de alquiler más expensas.', ficha:[['Ambientes','2']], lvl:0},
+          {ask:'Hasta $ 900.000 por mes entre alquiler y expensas', say:'¿Lo querés con balcón?', ficha:[['Presupuesto','Hasta $ 900.000 (alquiler + expensas)']], lvl:1},
+          {ask:'Sí, con balcón', say:'¿Tenés mascotas? 🐶\n\nAsí te muestro solo las que las aceptan.', ficha:[['Balcón','Sí']], lvl:1},
+          {ask:'Tengo un perro chico, tiene que ser pet friendly', say:'¿Buscás algún amenity en particular, como SUM, pileta o parrilla?', ficha:[['Mascota','Perro chico · pet friendly']], lvl:1},
+          {ask:'Sí, que tenga SUM o parrilla', say:'Encontré 2 opciones en Caballito que entran en tu presupuesto 🙌\n\n1️⃣ 2 ambientes, 52 m² con balcón, pet friendly, SUM y parrilla. $ 780.000 por mes más $ 95.000 de expensas: $ 875.000 en total.\n\n2️⃣ 2 ambientes, 48 m² con balcón, pet friendly y parrilla. $ 720.000 por mes más $ 70.000 de expensas: $ 790.000 en total.\n\n¿Querés ver alguna?', prop:[0,1,2,3,4], ficha:[['Amenities','SUM o parrilla']], lvl:2},
+          {ask:'Quiero ver la primera', say:'Para coordinar la visita tengo disponible 📅\n\n• Sábado 31 de octubre, de 10 a 13 h\n• Sábado 31 de octubre, de 16 a 18 h\n• Lunes 2 de noviembre, de 18 a 20 h\n\n¿Qué día y horario te queda mejor?', ficha:[['Propiedad elegida','La primera opción'],['Visita','Proponiendo horario']], lvl:2},
+          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTe comunico con Lucía, la asesora a cargo. Ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 2 ambientes, 52 m² con balcón en Caballito\n💰 $ 780.000 por mes + $ 95.000 de expensas\n🐶 Pet friendly, con SUM y parrilla\n📅 Sábado 31 de octubre, 11:00 h\n📍 Av. Rivadavia 5200, Caballito\n👩 Te recibe Lucía', ficha:[['Visita',VISITA],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']], lvl:2}
         ]},
       venta:{nombre:'Venta', titulo:'3 ambientes en Caballito',
         filas:[['Superficie','74 m² con cochera'],['Estado','Lista para escriturar'],['Precio','USD 138.000'],['Expensas','$ 160.000 por mes'],['Financiación','Acepta crédito hipotecario']],
         pasos:[
-          {ask:'Hola, vi el 3 ambientes de Caballito. ¿Sigue en venta?', say:['¡Hola! Soy el asistente de la inmobiliaria y estoy disponible las 24 horas.','Sí, el 3 ambientes de Caballito sigue en venta. Son 74 m² con cochera.','¿Es para vivir o como inversión?'], prop:[0,1], ficha:[['Operación','Venta']], log:'Confirmó la disponibilidad', lvl:0},
-          {ask:'Es para vivir con mi familia. ¿Queda cerca de un parque?', say:['Perfecto, para vivir.','Está en Caballito, a pocas cuadras del parque.'], ficha:[['Uso','Vivienda'],['Zona','Caballito']], log:'Registró que busca para vivir y la zona', lvl:1},
-          {ask:'¿Cuánto sale y cuánto son las expensas?', say:['El valor es de USD 138.000. Las expensas son de $ 160.000 por mes.'], prop:[2,3], log:'Informó el precio que tiene cargado', lvl:1},
-          {ask:'¿Cuánto es el ABL?', say:['No tengo ese dato cargado y prefiero no inventarlo.','Se lo consulto a un asesor para que te lo confirme.'], ficha:[['Pendiente','ABL, a confirmar']], log:'No tenía el dato: derivó en vez de inventar', lvl:1},
-          {ask:'Tengo USD 40.000 ahorrados. ¿Se puede comprar con crédito hipotecario?', say:['Sí, esta propiedad acepta escritura con crédito hipotecario.','Tu asesor te explica cómo sería el esquema con tu anticipo.'], prop:[4], ficha:[['Anticipo','USD 40.000'],['Financiación','Crédito hipotecario']], log:'Explicó la forma de pago y registró el anticipo', lvl:2},
-          {ask:'Quiero verlo. ¿Cuándo se puede?', say:['Te coordino.'].concat(HORARIOS), ficha:[['Visita','Proponiendo horario']], log:'Ofreció dos horarios concretos', lvl:2},
-          {ask:'Sábado a las 11:00', say:AGENDA, ficha:[['Visita','Sábado 11:00'],['Estado','Visita agendada']], log:'Agendó la visita y avisó al asesor', lvl:2}
+          {ask:'Hola, vi el 3 ambientes de Caballito. ¿Es apto crédito?', say:'¡Hola! 👋\n\nSí, es apto crédito hipotecario 🏦 Y sigue en venta: son 74 m² con cochera 🚗\n\n¿Es para vivir o como inversión?', prop:[0,1,4], ficha:[['Operación','Venta'],['Financiación','Apto crédito']], log:'Confirmó que es apto crédito y la disponibilidad', lvl:0},
+          {ask:'Es para vivir con mi familia. ¿Queda cerca de un parque?', say:'Sí, está en Caballito, a pocas cuadras del parque 🌳', ficha:[['Uso','Vivienda'],['Zona','Caballito']], log:'Registró que busca para vivir y la zona', lvl:1},
+          {ask:'¿Cuánto sale y cuánto son las expensas?', say:'El valor es de USD 138.000 💵\n\nLas expensas son de $ 160.000 por mes.', prop:[2,3], log:'Informó el precio que tiene cargado', lvl:1},
+          {ask:'¿Cuánto es el ABL?', say:'El vendedor no informó ese dato 🙏\n\nSe lo consulto a un asesor para que te lo confirme.\n\nMientras tanto, ¿querés que te coordine una visita?', ficha:[['Pendiente','ABL, a confirmar']], log:'El vendedor no informó el dato: lo consulta y sigue la conversación', lvl:1},
+          {ask:'Quiero verlo. ¿Cuándo se puede?', say:'Te coordino la visita 📅\n\nTengo disponible el sábado 31 de octubre a las 11:00 o a las 16:00.\n\n' + HORARIOS, ficha:[['Visita','Proponiendo horario']], log:'Ofreció dos horarios concretos', lvl:2},
+          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTu asesor ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 3 ambientes, 74 m² con cochera en Caballito\n💵 USD 138.000 + $ 160.000 de expensas por mes\n🏦 Apto crédito hipotecario\n📅 Sábado 31 de octubre, 11:00 h\n📍 Av. Rivadavia 5200, Caballito', ficha:[['Visita',VISITA],['Estado','Visita agendada']], log:'Agendó la visita y avisó al asesor', lvl:2}
         ]},
       pozo:{nombre:'Pozo', titulo:'2 ambientes en Torres del Parque',
-        filas:[['Superficie','52 m²'],['Ubicación','Núñez, a cuatro cuadras de la estación'],['Desde','USD 142.000 en preventa'],['Plan','30% de anticipo y 36 cuotas'],['Entrega','Diciembre de 2028']],
+        filas:[['Superficie','52 m² (44 cubiertos y 8 de balcón terraza)'],['Ubicación','Núñez, a cuatro cuadras de la estación'],['Desde','USD 142.000 en preventa'],['Plan','30% de anticipo y 36 cuotas'],['Entrega','Diciembre de 2028']],
         pasos:[
-          {ask:'Hola, vi Torres del Parque. ¿Quedan 2 ambientes?', say:['¡Hola! Soy el asistente de la inmobiliaria y estoy disponible las 24 horas.','Sí, quedan unidades de 2 ambientes en Torres del Parque, en preventa. Son 52 m².','¿Lo buscás para vivir o como inversión?'], prop:[0], ficha:[['Operación','Pozo']], log:'Confirmó la disponibilidad', lvl:0},
-          {ask:'Es para invertir. ¿Dónde queda?', say:['Entendido, para inversión.','Torres del Parque está en Núñez, a cuatro cuadras de la estación.'], prop:[1], ficha:[['Uso','Inversión'],['Zona','Núñez']], log:'Registró que busca para invertir y la zona', lvl:1},
-          {ask:'¿Cuánto sale?', say:['Los 2 ambientes parten desde USD 142.000 en preventa.','¿Querés que te cuente cómo es el plan de pago?'], prop:[2], log:'Informó el precio que tiene cargado', lvl:1},
-          {ask:'¿Cómo es el plan de pago?', say:['El plan es 30% de anticipo y 36 cuotas ajustadas por CAC.','El ajuste hace que el precio se sostenga hasta la entrega.'], prop:[3], ficha:[['Interés en','Plan de pago']], log:'Explicó la forma de pago cargada', lvl:1},
-          {ask:'¿Cuándo entregan?', say:['La entrega estimada es diciembre de 2028.','Hoy la obra está en estructura, con el subsuelo y las primeras plantas hechas.'], prop:[4], log:'Informó plazos', lvl:2},
-          {ask:'Quiero verlo. ¿Cuándo se puede?', say:['Te coordino.'].concat(HORARIOS), ficha:[['Visita','Proponiendo horario']], log:'Ofreció dos horarios concretos', lvl:2},
-          {ask:'Sábado a las 11:00', say:AGENDA, ficha:[['Visita','Sábado 11:00'],['Estado','Visita agendada']], log:'Agendó la visita y avisó al asesor', lvl:2}
+          {ask:'Hola, vi Torres del Parque. ¿Quedan 2 ambientes disponibles?', say:'¡Hola! 👋 Sí, quedan unidades de 2 ambientes en Torres del Parque, en preventa 🏗️\n\nTienen 52 m² totales: 44 m² cubiertos más 8 m² de balcón terraza, con living comedor integrado a la cocina y dormitorio en suite.\n\n💵 Desde USD 142.000\n📍 Núñez, a cuatro cuadras de la estación\n🗓️ Entrega estimada: diciembre de 2028\n\n¿Lo buscás para vivir o como inversión?', prop:[0,1,2,4], ficha:[['Operación','Pozo']], log:'Informó precio y datos de la unidad', lvl:1},
+          {ask:'Es solo para invertir. ¿Cómo es el plan de pago?', say:'Para inversión es una buena opción: se paga en pesos ajustados por CAC 📊\n\nEl plan es 30% de anticipo y 36 cuotas, y el ajuste hace que el precio se sostenga hasta la entrega.\n\nTe dejo la página del proyecto, con el render del edificio, las plantas y el avance de obra 🏙️\n🔗 tu-inmobiliaria.com/torres-del-parque\n\nSi querés avanzar, puedo agendarte una reunión con un asesor para concretar la compra y ultimar los detalles de la reserva 🤝\n\nTengo disponible el sábado 31 de octubre a las 11:00 o a las 16:00. ¿Cuál te queda mejor?', prop:[3], ficha:[['Uso','Inversión'],['Interés en','Plan de pago'],['Material enviado','Página con render del edificio'],['Reunión','Proponiendo horario']], log:'Explicó el plan, envió la página del proyecto y ofreció reunión con el asesor', lvl:2},
+          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te agendo la reunión con el asesor para concretar la compra ✅\n\nYa recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen:\n🏗️ 2 ambientes de 52 m² (44 cubiertos y 8 de balcón terraza) en Torres del Parque\n💵 Desde USD 142.000 en preventa\n📊 30% de anticipo y 36 cuotas ajustadas por CAC\n🗓️ Entrega estimada: diciembre de 2028\n🏙️ Página del proyecto: tu-inmobiliaria.com/torres-del-parque\n🤝 Reunión con tu asesor para cerrar la reserva: sábado 31 de octubre, 11:00 h', ficha:[['Reunión','Sábado 31 de octubre, 11:00'],['Estado','Reunión agendada']], log:'Agendó la reunión de cierre y avisó al asesor', lvl:2}
         ]}
     };
 
@@ -726,13 +722,13 @@
       pintarProp(); pintarFicha(); mostrarSiguiente();
     }
     function responder(){
-      var p = OPS[op].pasos[n], g = gen, i = 0;
+      var p = OPS[op].pasos[n], g = gen, enviado = false;
       var h = chat.querySelector('.demo-hint'); if(h) h.remove();
       ocupado = true; enviarBtn.disabled = true; form.classList.remove('lista'); input.value = ''; pasoTxt.textContent = 'El agente está respondiendo…';
       msg('in', p.ask);
       function seguir(){
         if(g !== gen) return; // la conversación se reinició: se descarta lo que quedó en vuelo
-        if(i >= p.say.length){
+        if(enviado){
           escribiendo(false);
           var nuevasF = (p.ficha || []).map(function(f){ ficharDato(f[0], f[1]); return f[0]; });
           var nuevasP = (p.prop || []).filter(function(x){ return st.prop.indexOf(x) === -1; });
@@ -742,7 +738,7 @@
           n++; ocupado = false; mostrarSiguiente(); return;
         }
         escribiendo(true);
-        setTimeout(function(){ if(g !== gen) return; escribiendo(false); msg('out', p.say[i]); i++; setTimeout(seguir, rapido ? 60 : 280); }, rapido ? 120 : 500 + Math.min(p.say[i].length * 9, 1100));
+        setTimeout(function(){ if(g !== gen) return; escribiendo(false); msg('out', p.say); enviado = true; setTimeout(seguir, rapido ? 60 : 280); }, rapido ? 120 : 600 + Math.min(p.say.length * 6, 1800));
       }
       setTimeout(seguir, rapido ? 60 : 300);
     }

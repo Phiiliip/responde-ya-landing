@@ -248,6 +248,10 @@
   .axis{display:grid;grid-template-columns:132px 1fr;gap:16px}
   @media(max-width:640px){.axis{grid-template-columns:1fr}}
   .axis div{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--mute)}
+  .axis .ejehs{display:block;position:relative;height:16px}
+  .axis .ejehs span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+  .axis .ejehs span:first-child{transform:none}
+  .axis .ejehs span:last-child{transform:translateX(-100%)}
 
   /* ---------- Cuellos de botella ---------- */
   .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-block:20px;border-bottom:1px solid var(--hairline)}
@@ -264,17 +268,13 @@
   .compare-old .compare-label{color:var(--mute)}
 
   /* ---------- Qué hace: teléfono pegajoso ---------- */
-  .qh{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start}
+  .qh{display:grid;grid-template-columns:1fr;gap:0;align-items:start}
   @media(max-width:900px){.qh{grid-template-columns:1fr;gap:0}}
-  .qh-steps .step-item{min-height:44vh;display:flex;flex-direction:column;justify-content:center;opacity:.3;padding-left:22px;border-left:2px solid transparent;transition:opacity .5s var(--ease),border-color .5s var(--ease)}
-  .qh-steps .step-item.active{opacity:1;border-left-color:var(--mark)}
+  .qh-steps .step-item{display:flex;flex-direction:column;justify-content:center;padding-block:28px;border-top:1px solid var(--hairline)}
+  .qh-steps .step-item:first-child{border-top:none;padding-top:0}
   .step-item .n{font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--mark);margin-bottom:10px}
   .step-item h3{font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-0.03em;margin-bottom:8px;line-height:1.2}
   .step-item p{color:var(--body-c);max-width:44ch}
-  @media(max-width:900px){.qh-steps .step-item{min-height:0;opacity:1;padding-left:0;border-left:none;padding-block:28px;border-top:1px solid var(--hairline)}.qh-steps .step-item:first-child{border-top:none;padding-top:0}}
-  .qh-phone{position:sticky;top:calc(var(--nav-h) + 28px);align-self:start}
-  @media(max-width:900px){.qh-phone{display:none}}
-  .qh-phone .phone-body{display:grid;min-height:280px;align-content:end}
   .scene{grid-area:1/1;display:flex;flex-direction:column;gap:8px;justify-content:flex-end;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none}
   .scene.active{opacity:1;transform:none}
   .mini{display:none;margin-top:18px;background:#EFE7DE;border-radius:var(--r-lg);padding:12px;box-shadow:var(--sh-2);flex-direction:column;gap:8px}
@@ -593,11 +593,11 @@
       <div class="reveal-group">
         <div class="pillar reveal">
           <span class="eyebrow">Misión</span>
-          <p class="long">Eliminar la carga operativa de la atención de consultas, para que tu inmobiliaria dedique su tiempo a desarrollar el negocio de la forma más eficiente.</p>
+          <p class="long">Eliminar la carga operativa de la atención de consultas, para que tu negocio dedique su tiempo a desarrollar el negocio de la forma más eficiente.</p>
         </div>
         <div class="pillar reveal">
           <span class="eyebrow">Visión</span>
-          <p>Que ninguna inmobiliaria pierda un cliente por no contar con una respuesta inmediata.</p>
+          <p>Que nadie pierda un cliente por no contar con una respuesta inmediata.</p>
         </div>
       </div>
     </div>
@@ -622,7 +622,7 @@
       </div>
       <div class="axis">
         <span></span>
-        <div><span>0 h</span><span>6 h</span><span>12 h</span><span>18 h</span><span>24 h</span></div>
+        <div class="ejehs"><span style="left:0">0 h</span><span style="left:37.5%">9 h</span><span style="left:75%">18 h</span><span style="left:100%">24 h</span></div>
       </div>
     </div>
   </div>
@@ -665,8 +665,8 @@
       </div>
       <div class="calc-box">
         <label for="c1">Leads mensuales fuera del horario laboral <output id="o1">60</output></label>
-        <input type="range" id="c1" min="0" max="500" step="5" value="60">
-        <label for="c2">Ratio de conversión <output id="o2">3</output></label>
+        <input type="range" id="c1" min="0" max="300" step="2" value="60">
+        <label for="c2">Conversión (%) <output id="o2">3%</output></label>
         <input type="range" id="c2" min="0" max="30" step="1" value="3">
         <label for="c3">Ingreso promedio por operación (USD) <output id="o3">1.500</output></label>
         <input type="range" id="c3" min="0" max="10000" step="100" value="1500">
@@ -719,18 +719,6 @@
           <p>Recibe un resumen de la vivienda, quién lo atiende, cuándo y dónde, y llega a la visita informado.</p>
         </div>
       </div>
-      <div class="qh-phone">
-        <div class="phone">
-          <div class="phone-head">
-            <div class="phone-ava"></div>
-            <div>
-              <div class="phone-name">Tu inmobiliaria</div>
-              <div class="phone-state">en línea</div>
-            </div>
-          </div>
-          <div class="phone-body" id="qhBody"></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -740,7 +728,7 @@
     <span class="eyebrow reveal">Cómo funciona</span>
     <h2 class="reveal" style="margin-bottom:28px">De la primera reunión al agente en funcionamiento.</h2>
     <div class="steps reveal-group">
-      <div class="step reveal"><span class="n">01</span><div><h3>Conversamos por WhatsApp</h3><p>El mismo canal que usará el agente con tus interesados. Nos contás cómo trabajás hoy y en qué punto se demoran las consultas.</p></div></div>
+      <div class="step reveal"><span class="n">01</span><div><h3>Coordinamos una reunión</h3><p>Nos contás cómo trabajás hoy y en qué punto se demoran las consultas. Con eso te mostramos cómo funcionaría el agente en tu inmobiliaria.</p></div></div>
       <div class="step reveal"><span class="n">02</span><div><h3>En 1 a 2 semanas está en funcionamiento</h3><p>Se conecta a tu número de WhatsApp Business y se carga con tus propiedades reales, con sus precios y condiciones.</p></div></div>
       <div class="step reveal"><span class="n">03</span><div><h3>Tu equipo sigue vendiendo</h3><p>El agente atiende las consultas que hoy se responden tarde o no se responden. Las visitas y el cierre siguen a cargo de tu equipo.</p></div></div>
     </div>
@@ -768,9 +756,8 @@
       <details class="reveal"><summary>¿Reemplaza a mi equipo comercial?</summary><p>No. Atiende lo que hoy se contesta tarde o directamente no se contesta. El cierre y la relación con el interesado siguen siendo de tu equipo.</p></details>
       <details class="reveal"><summary>¿Qué pasa si el interesado quiere hablar con una persona?</summary><p>Se deriva de inmediato, con el resumen completo de la conversación. Tu asesor no necesita volver a preguntar lo que ya se dijo.</p></details>
       <details class="reveal"><summary>¿Puede inventar un precio o decir que algo está disponible cuando no lo está?</summary><p>El agente informa solo lo que vos le cargás. Si no tiene el dato, lo dice y deriva. Cuando una propiedad se vende o cambia de precio, la actualizás y el agente informa lo nuevo.</p></details>
-      <details class="reveal"><summary>¿Necesito una cuenta de WhatsApp aparte?</summary><p>Sí, un número de WhatsApp Business dedicado, separado del que ya usás. Te ayudamos a prepararlo.</p></details>
+      <details class="reveal"><summary>¿Necesito una cuenta de WhatsApp aparte?</summary><p>No. El agente usa el mismo número de WhatsApp que ya tiene tu inmobiliaria. Te ayudamos a conectarlo.</p></details>
       <details class="reveal"><summary>¿Sirve para alquiler, venta y emprendimientos en pozo?</summary><p>Sí. Cada tipo de operación se carga con sus propias condiciones: disponibilidad, precios, requisitos o etapa de obra.</p></details>
-      <details class="reveal"><summary>¿Otras inmobiliarias ven mis datos?</summary><p>No. Los datos y la configuración de cada inmobiliaria se guardan por separado. Está explicado en <a href="proteccion-de-datos.html">Cómo protegemos tus datos</a>.</p></details>
       <details class="reveal"><summary>¿Puedo pausarlo?</summary><p>Sí. Cuando un asesor toma una conversación, el agente deja de intervenir, y podés pausarlo en cualquier momento.</p></details>
       <details class="reveal"><summary>¿Qué no hace?</summary><p>No negocia el precio, no cierra operaciones ni da asesoramiento legal o financiero. Si le preguntan algo así, deriva a una persona.</p></details>
       <details class="reveal"><summary>¿Cuánto cuesta?</summary><p>Depende del plan, que se elige por volumen de conversaciones. Están en la sección <a href="#planes">Planes</a> y el precio se confirma antes de contratar.</p></details>
@@ -779,19 +766,10 @@
   </div>
 </section>
 
-<section>
-  <div class="measure">
-    <div class="warranty reveal">
-      <b>Sin permanencia.</b>
-      No hay contrato que te ate: cambiás o cancelás cuando quieras.
-    </div>
-  </div>
-</section>
-
 <section class="close-band roomy">
   <div class="measure reveal-group" style="text-align:center">
     <h2 class="reveal">La próxima consulta puede llegar en cualquier momento.</h2>
-    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp para identificar dónde se demoran hoy tus consultas. Si preferís ver cómo funciona antes, probá la demo.</p>
+    <p class="lede reveal" style="margin:0 auto 8px">Hablemos por WhatsApp para identificar dónde se demoran hoy tus consultas. Si preferís ver cómo funciona antes, <a href="demo.html" style="color:inherit;text-decoration:underline">probá la demo</a>.</p>
     <a class="cta reveal" id="ctaClose" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z" stroke="white" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.4-.1.1-.3.3-.1.6.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.6 1.6.3.1.5.1.7-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1 1-.3 1.9-.4.9-2.1 1.7-2.8 1.7-.7 0-1.6-.1-3.6-1.1-2.9-1.4-4.6-4.3-4.8-4.5-.1-.2-1.2-1.6-1.2-3 0-1.4.8-2.1 1-2.4z" fill="white"/></svg>
       Hablar por WhatsApp
@@ -807,7 +785,7 @@
     <div class="foot">
       <div>
         <a class="brandlink" href="index.html#top" aria-label="RespondeYA, inicio"><svg class="iso" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#A4161A"/><path d="M14 17c0-2.2 1.8-4 4-4h28c2.2 0 4 1.8 4 4v20c0 2.2-1.8 4-4 4H26l-8.5 8v-8H18c-2.2 0-4-1.8-4-4z" fill="#fff"/><path d="M35 15 25 30h6l-2 12 13-17h-7z" fill="#A4161A"/></svg><span class="word">Responde<b>YA</b></span></a>
-        <p class="tag">El agente de WhatsApp de tu inmobiliaria.</p>
+        <p class="tag">El agente de tu inmobiliaria.</p>
         <span class="badge"><i></i>Funciona con WhatsApp Business</span>
       </div>
       <nav aria-label="Producto"><h4>Producto</h4><ul>
@@ -818,7 +796,6 @@
       </ul></nav>
       <nav aria-label="Empresa"><h4>Empresa</h4><ul>
         <li><a href="sobre.html">Sobre RespondeYA</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
         <li><a href="empezar.html">Empezar</a></li>
       </ul></nav>
       <nav aria-label="Legal"><h4>Legal</h4><ul>
@@ -895,7 +872,7 @@
       var a = +c1.value, b = +c2.value, h = +c3.value;
       var ops = a * b / 100;
       document.getElementById('o1').textContent = nf.format(a);
-      document.getElementById('o2').textContent = b;
+      document.getElementById('o2').textContent = b + '%';
       document.getElementById('o3').textContent = nf.format(h);
       document.getElementById('r1').textContent = nd.format(ops);
       document.getElementById('r2').textContent = 'USD ' + nf.format(Math.round(ops * h));
@@ -926,56 +903,6 @@
   barra('barSin', function(h){ return h >= 9 && h < 18; });
   barra('barCon', function(){ return true; });
 
-  // ── Teléfono pegajoso: escenas ────────────────────────────────────────────
-  function burbuja(b){ return '<div class="msg ' + b.d + '">' + b.t + '<span class="t">' + b.h + (b.d === 'out' ? ' ✓✓' : '') + '</span></div>'; }
-  var escenas = [
-    { tipo:'chat', msgs:[
-      {d:'in',  t:'Hola, quiero alquilar algo por la zona de Caballito', h:'23:52'},
-      {d:'out', t:'¡Hola! Tengo opciones en Caballito. Para mostrarte lo que mejor te sirve, te hago unas preguntas. ¿Cuántos ambientes buscás?', h:'23:52'} ]},
-    { tipo:'chat', msgs:[
-      {d:'in',  t:'2 ambientes, hasta $ 900.000 por mes', h:'23:53'},
-      {d:'out', t:'Anotado. ¿Lo querés con balcón? ¿Tenés mascotas? ¿Buscás algún amenity, como SUM, pileta o parrilla?', h:'23:53'} ]},
-    { tipo:'resultados', titulo:'Opciones que cumplen lo que pediste', items:[
-      ['2 amb · 52 m² con balcón', 'Pet friendly · SUM y parrilla', '$ 780.000 + $ 95.000 de expensas'],
-      ['2 amb · 48 m² con balcón', 'Pet friendly · Parrilla', '$ 850.000 + $ 70.000 de expensas'] ]},
-    { tipo:'chat', msgs:[
-      {d:'out', t:'Para coordinar la visita tengo disponible: sábado de 10 a 13 h, sábado de 16 a 18 h o lunes de 18 a 20 h. ¿Cuál te resulta más cómodo?', h:'23:55'},
-      {d:'in',  t:'Sábado a las 11:00', h:'23:55'},
-      {d:'out', t:'Listo, te reservo el sábado a las 11:00.', h:'23:55'} ]},
-    { tipo:'ficha', titulo:'Ficha para tu asesor', filas:[['Búsqueda','Alquiler · Caballito'],['Ambientes y presupuesto','2 amb · hasta $ 900.000'],['Balcón y mascotas','Con balcón · pet friendly'],['Amenities','SUM o parrilla'],['Propiedad elegida','2 amb · 52 m² · $ 780.000'],['Visita','Sábado 11:00'],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']] },
-    { tipo:'ficha', titulo:'Lo que recibió el interesado', filas:[['Vivienda','2 amb · 52 m² · balcón · pet friendly'],['Valor','$ 780.000 + $ 95.000 de expensas'],['Te atiende','Lucía, asesora a cargo'],['Cuándo','Sábado 11:00'],['Dónde','Av. Rivadavia 5200, Caballito']] }
-  ];
-  function htmlEscena(e){
-    if(e.tipo === 'chat') return e.msgs.map(burbuja).join('');
-    if(e.tipo === 'resultados') return '<div class="card-scene"><h4>' + e.titulo + '</h4><ul class="res">' +
-      e.items.map(function(r){ return '<li><b>' + r[0] + '</b><span>' + r[1] + '</span><em>' + r[2] + '</em></li>'; }).join('') + '</ul></div>';
-    return '<div class="card-scene"><h4>' + e.titulo + '</h4><dl>' +
-      e.filas.map(function(f){ return '<div><dt>' + f[0] + '</dt><dd>' + f[1] + '</dd></div>'; }).join('') + '</dl></div>';
-  }
-  var body = document.getElementById('qhBody');
-  var items = document.querySelectorAll('#qhSteps .step-item');
-  if(body){
-    body.innerHTML = escenas.map(function(e, i){ return '<div class="scene' + (i === 0 ? ' active' : '') + '" data-i="' + i + '">' + htmlEscena(e) + '</div>'; }).join('');
-    items.forEach(function(it, i){
-      var m = document.createElement('div'); m.className = 'mini'; m.innerHTML = htmlEscena(escenas[i]); it.appendChild(m);
-    });
-  }
-  var escenaActual = -1;
-  function actualizarEscena(){
-    if(!items.length) return;
-    var mid = window.innerHeight / 2, mejor = 0, dist = 1e9;
-    items.forEach(function(it, i){
-      var r = it.getBoundingClientRect(), d = Math.abs((r.top + r.bottom) / 2 - mid);
-      if(d < dist){ dist = d; mejor = i; }
-    });
-    if(mejor !== escenaActual){ escenaActual = mejor; activar(mejor); }
-  }
-  function activar(i){
-    items.forEach(function(it){ it.classList.toggle('active', +it.dataset.scene === i); });
-    document.querySelectorAll('#qhBody .scene').forEach(function(s){ s.classList.toggle('active', +s.dataset.i === i); });
-  }
-
-
   // ── Navegación y progreso ─────────────────────────────────────────────────
   var nav = document.getElementById('nav'), prog = document.getElementById('progress'), heroGrid = document.getElementById('nightGrid');
   var ticking = false;
@@ -985,12 +912,9 @@
     if(nav) nav.classList.toggle('scrolled', y > 8);
     if(prog && max > 0) prog.style.transform = 'scaleX(' + Math.min(y / max, 1) + ')';
     if(heroGrid && !reduced) heroGrid.style.transform = 'translateY(' + Math.min(y * 0.08, 60) + 'px)';
-    actualizarEscena();
     ticking = false;
   }
-  window.addEventListener('resize', actualizarEscena);
-  window.addEventListener('load', actualizarEscena);
-  window.addEventListener('scroll', function(){ actualizarEscena(); if(!ticking){ ticking = true; requestAnimationFrame(alScrollear); } }, {passive:true});
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(alScrollear); } }, {passive:true});
   alScrollear();
 
   // ── Reveal en scroll ──────────────────────────────────────────────────────
