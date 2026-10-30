@@ -636,7 +636,7 @@
     var propT = document.getElementById('dPropTitle'), propL = document.getElementById('dProp'), fichaL = document.getElementById('dFicha');
     var rapido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var HORARIOS = '¿Cuál te queda mejor?';
-    var VISITA = 'Sábado 31 de octubre, 11:00';
+    var VISITA = '{Sab}, 11:00';
 
     // prop: filas de "Propiedad cargada" que aparecen recién cuando el agente las usa.
     // ficha: datos del interesado que se van sumando. lvl: interés (0 sin calificar, 1 medio, 2 alto).
@@ -651,8 +651,8 @@
           {ask:'Sí, con balcón', say:'¿Tenés mascotas? 🐶\n\nAsí te muestro solo las que las aceptan.', ficha:[['Balcón','Sí']], lvl:1},
           {ask:'Tengo un perro chico, tiene que ser pet friendly', say:'¿Buscás algún amenity en particular, como SUM, pileta o parrilla?', ficha:[['Mascota','Perro chico · pet friendly']], lvl:1},
           {ask:'Sí, que tenga SUM o parrilla', say:'Encontré 2 opciones en Caballito que entran en tu presupuesto 🙌\n\n1️⃣ 2 ambientes, 52 m² con balcón, pet friendly, SUM y parrilla. $ 780.000 por mes más $ 95.000 de expensas: $ 875.000 en total.\n\n2️⃣ 2 ambientes, 48 m² con balcón, pet friendly y parrilla. $ 720.000 por mes más $ 70.000 de expensas: $ 790.000 en total.\n\n¿Querés ver alguna?', prop:[0,1,2,3,4], ficha:[['Amenities','SUM o parrilla']], lvl:2},
-          {ask:'Quiero ver la primera', say:'Para coordinar la visita tengo disponible 📅\n\n• Sábado 31 de octubre, de 10 a 13 h\n• Sábado 31 de octubre, de 16 a 18 h\n• Lunes 2 de noviembre, de 18 a 20 h\n\n¿Qué día y horario te queda mejor?', ficha:[['Propiedad elegida','La primera opción'],['Visita','Proponiendo horario']], lvl:2},
-          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTe comunico con Lucía, la asesora a cargo. Ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 2 ambientes, 52 m² con balcón en Caballito\n💰 $ 780.000 por mes + $ 95.000 de expensas\n🐶 Pet friendly, con SUM y parrilla\n📅 Sábado 31 de octubre, 11:00 h\n📍 Av. Rivadavia 5200, Caballito\n👩 Te recibe Lucía', ficha:[['Visita',VISITA],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']], lvl:2}
+          {ask:'Quiero ver la primera', say:'Para coordinar la visita tengo disponible 📅\n\n• {Sab}, de 10 a 13 h\n• {Sab}, de 16 a 18 h\n• {Lun}, de 18 a 20 h\n\n¿Qué día y horario te queda mejor?', ficha:[['Propiedad elegida','La primera opción'],['Visita','Proponiendo horario']], lvl:2},
+          {ask:'{Sabn} a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTe comunico con Lucía, la asesora a cargo. Ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 2 ambientes, 52 m² con balcón en Caballito\n💰 $ 780.000 por mes + $ 95.000 de expensas\n🐶 Pet friendly, con SUM y parrilla\n📅 {Sab}, 11:00 h\n📍 Av. Rivadavia 5200, Caballito\n👩 Te recibe Lucía', ficha:[['Visita',VISITA],['Asesora a cargo','Lucía'],['Estado','Derivado a asesora']], lvl:2}
         ]},
       venta:{nombre:'Venta', titulo:'3 ambientes en Caballito',
         filas:[['Superficie','74 m² con cochera'],['Estado','Lista para escriturar'],['Precio','USD 138.000'],['Expensas','$ 160.000 por mes'],['Financiación','Acepta crédito hipotecario']],
@@ -661,17 +661,34 @@
           {ask:'Es para vivir con mi familia. ¿Queda cerca de un parque?', say:'Sí, está en Caballito, a pocas cuadras del parque 🌳', ficha:[['Uso','Vivienda'],['Zona','Caballito']], log:'Registró que busca para vivir y la zona', lvl:1},
           {ask:'¿Cuánto sale y cuánto son las expensas?', say:'El valor es de USD 138.000 💵\n\nLas expensas son de $ 160.000 por mes.', prop:[2,3], log:'Informó el precio que tiene cargado', lvl:1},
           {ask:'¿Cuánto es el ABL?', say:'El vendedor no informó ese dato 🙏\n\nSe lo consulto a un asesor para que te lo confirme.\n\nMientras tanto, ¿querés que te coordine una visita?', ficha:[['Pendiente','ABL, a confirmar']], log:'El vendedor no informó el dato: lo consulta y sigue la conversación', lvl:1},
-          {ask:'Quiero verlo. ¿Cuándo se puede?', say:'Te coordino la visita 📅\n\nTengo disponible el sábado 31 de octubre a las 11:00 o a las 16:00.\n\n' + HORARIOS, ficha:[['Visita','Proponiendo horario']], log:'Ofreció dos horarios concretos', lvl:2},
-          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTu asesor ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 3 ambientes, 74 m² con cochera en Caballito\n💵 USD 138.000 + $ 160.000 de expensas por mes\n🏦 Apto crédito hipotecario\n📅 Sábado 31 de octubre, 11:00 h\n📍 Av. Rivadavia 5200, Caballito', ficha:[['Visita',VISITA],['Estado','Visita agendada']], log:'Agendó la visita y avisó al asesor', lvl:2}
+          {ask:'Quiero verlo. ¿Cuándo se puede?', say:'Te coordino la visita 📅\n\nTengo disponible el {sab} a las 11:00 o a las 16:00.\n\n' + HORARIOS, ficha:[['Visita','Proponiendo horario']], log:'Ofreció dos horarios concretos', lvl:2},
+          {ask:'{Sabn} a las 11:00', say:'¡Listo! Te reservo la visita ✅\n\nTu asesor ya recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen de tu visita:\n🏠 3 ambientes, 74 m² con cochera en Caballito\n💵 USD 138.000 + $ 160.000 de expensas por mes\n🏦 Apto crédito hipotecario\n📅 {Sab}, 11:00 h\n📍 Av. Rivadavia 5200, Caballito', ficha:[['Visita',VISITA],['Estado','Visita agendada']], log:'Agendó la visita y avisó al asesor', lvl:2}
         ]},
       pozo:{nombre:'Pozo', titulo:'2 ambientes en Torres del Parque',
         filas:[['Superficie','52 m² (44 cubiertos y 8 de balcón terraza)'],['Ubicación','Núñez, a cuatro cuadras de la estación'],['Desde','USD 142.000 en preventa'],['Plan','30% de anticipo y 36 cuotas'],['Entrega','Diciembre de 2028']],
         pasos:[
           {ask:'Hola, vi Torres del Parque. ¿Quedan 2 ambientes disponibles?', say:'¡Hola! 👋 Sí, quedan unidades de 2 ambientes en Torres del Parque, en preventa 🏗️\n\nTienen 52 m² totales: 44 m² cubiertos más 8 m² de balcón terraza, con living comedor integrado a la cocina y dormitorio en suite.\n\n💵 Desde USD 142.000\n📍 Núñez, a cuatro cuadras de la estación\n🗓️ Entrega estimada: diciembre de 2028\n\n¿Lo buscás para vivir o como inversión?', prop:[0,1,2,4], ficha:[['Operación','Pozo']], log:'Informó precio y datos de la unidad', lvl:1},
-          {ask:'Es solo para invertir. ¿Cómo es el plan de pago?', say:'Para inversión es una buena opción: se paga en pesos ajustados por CAC 📊\n\nEl plan es 30% de anticipo y 36 cuotas, y el ajuste hace que el precio se sostenga hasta la entrega.\n\nTe dejo la página del proyecto, con el render del edificio, las plantas y el avance de obra 🏙️\n🔗 tu-inmobiliaria.com/torres-del-parque\n\nSi querés avanzar, puedo agendarte una reunión con un asesor para concretar la compra y ultimar los detalles de la reserva 🤝\n\nTengo disponible el sábado 31 de octubre a las 11:00 o a las 16:00. ¿Cuál te queda mejor?', prop:[3], ficha:[['Uso','Inversión'],['Interés en','Plan de pago'],['Material enviado','Página con render del edificio'],['Reunión','Proponiendo horario']], log:'Explicó el plan, envió la página del proyecto y ofreció reunión con el asesor', lvl:2},
-          {ask:'Sábado 31 a las 11:00', say:'¡Listo! Te agendo la reunión con el asesor para concretar la compra ✅\n\nYa recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen:\n🏗️ 2 ambientes de 52 m² (44 cubiertos y 8 de balcón terraza) en Torres del Parque\n💵 Desde USD 142.000 en preventa\n📊 30% de anticipo y 36 cuotas ajustadas por CAC\n🗓️ Entrega estimada: diciembre de 2028\n🏙️ Página del proyecto: tu-inmobiliaria.com/torres-del-parque\n🤝 Reunión con tu asesor para cerrar la reserva: sábado 31 de octubre, 11:00 h', ficha:[['Reunión','Sábado 31 de octubre, 11:00'],['Estado','Reunión agendada']], log:'Agendó la reunión de cierre y avisó al asesor', lvl:2}
+          {ask:'Es solo para invertir. ¿Cómo es el plan de pago?', say:'Para inversión es una buena opción: se paga en pesos ajustados por CAC 📊\n\nEl plan es 30% de anticipo y 36 cuotas, y el ajuste hace que el precio se sostenga hasta la entrega.\n\nTe dejo la página del proyecto, con el render del edificio, las plantas y el avance de obra 🏙️\n🔗 tu-inmobiliaria.com/torres-del-parque\n\nSi querés avanzar, puedo agendarte una reunión con un asesor para concretar la compra y ultimar los detalles de la reserva 🤝\n\nTengo disponible el {sab} a las 11:00 o a las 16:00. ¿Cuál te queda mejor?', prop:[3], ficha:[['Uso','Inversión'],['Interés en','Plan de pago'],['Material enviado','Página con render del edificio'],['Reunión','Proponiendo horario']], log:'Explicó el plan, envió la página del proyecto y ofreció reunión con el asesor', lvl:2},
+          {ask:'{Sabn} a las 11:00', say:'¡Listo! Te agendo la reunión con el asesor para concretar la compra ✅\n\nYa recibió un resumen de lo que hablamos, así no tenés que repetir nada.\n\nResumen:\n🏗️ 2 ambientes de 52 m² (44 cubiertos y 8 de balcón terraza) en Torres del Parque\n💵 Desde USD 142.000 en preventa\n📊 30% de anticipo y 36 cuotas ajustadas por CAC\n🗓️ Entrega estimada: diciembre de 2028\n🏙️ Página del proyecto: tu-inmobiliaria.com/torres-del-parque\n🤝 Reunión con tu asesor para cerrar la reserva: {sab}, 11:00 h', ficha:[['Reunión','{Sab}, 11:00'],['Estado','Reunión agendada']], log:'Agendó la reunión de cierre y avisó al asesor', lvl:2}
         ]}
     };
+
+    // Fechas de la demo: siempre el próximo sábado y el lunes siguiente (nunca una fecha vencida).
+    (function(){
+      var MES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      var hoy = new Date(), add = (6 - hoy.getDay() + 7) % 7; if(add === 0) add = 7;
+      var sab = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() + add);
+      var lun = new Date(sab.getFullYear(), sab.getMonth(), sab.getDate() + 2);
+      function f(d){ return d.getDate() + ' de ' + MES[d.getMonth()]; }
+      var T = {'{sab}':'sábado ' + f(sab), '{Sab}':'Sábado ' + f(sab), '{Sabn}':'Sábado ' + sab.getDate(), '{lun}':'lunes ' + f(lun), '{Lun}':'Lunes ' + f(lun)};
+      function r(x){
+        if(typeof x === 'string') return x.replace(/\{(?:sab|Sab|Sabn|lun|Lun)\}/g, function(m){ return T[m]; });
+        if(Array.isArray(x)) return x.map(r);
+        if(x && typeof x === 'object'){ Object.keys(x).forEach(function(k){ x[k] = r(x[k]); }); }
+        return x;
+      }
+      r(OPS); VISITA = r(VISITA);
+    })();
 
     var op = 'alquiler', hora, st, n = 0, ocupado = false, gen = 0;
     function hh(){ var h = Math.floor(hora / 60) % 24, m = hora % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
