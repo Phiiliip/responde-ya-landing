@@ -8,7 +8,7 @@ window.RESPONDEYA = {
   // Número de WhatsApp Business en formato internacional, sin + ni espacios.
   // Ejemplo: "5491122334455". Mientras diga PEGA_TU..., los botones avisan
   // en vez de abrir un chat con un número que no existe.
-  WHATSAPP_NUMBER: "PEGA_TU_NUMERO_DE_WHATSAPP_BUSINESS",
+  WHATSAPP_NUMBER: "5491172120111",
   MENSAJE: "Hola, vi RespondeYA y quiero saber más.",
 
   // URL que recibe el formulario de "Empezar" (por ejemplo un endpoint de
