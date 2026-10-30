@@ -499,8 +499,62 @@
   @media(max-width:1000px){.navlinks a:not(.navcta){display:none}}
   @media(max-width:520px){.brandlink .word{font-size:23px}.brandlink .iso{width:36px;height:36px;flex-basis:36px}.navlinks a.navcta,.navcta{padding:10px 16px !important;font-size:14.5px}}
 </style>
+
+<style id="fx">
+  /* ---------- Efectos (curva y reglas de landing-page-design, adaptadas) ---------- */
+  :root{--curve:cubic-bezier(0.22,1,0.36,1)}
+  p{text-wrap:pretty}
+  .skip{position:absolute;left:12px;top:-64px;z-index:100;background:var(--brand);color:#fff;padding:8px 12px;border-radius:var(--r-md);font-size:14px;font-weight:600;text-decoration:none;transition:transform .5s var(--curve)}
+  .skip:focus{transform:translateY(76px)}
+
+  /* Titular del hero: palabra por palabra */
+  .fx .hero h1{animation:none}
+  .fx .hero h1 .w{display:inline-block;opacity:0;transform:translateY(32px);animation:wordIn .8s var(--curve) forwards;animation-delay:calc(var(--i) * 55ms + 120ms)}
+  @keyframes wordIn{to{opacity:1;transform:none}}
+
+  /* Frase central: cada palabra se enciende al cruzar la línea */
+  .tagline{padding-block:128px}
+  @media(max-width:640px){.tagline{padding-block:84px}}
+  .tagline p{font-size:clamp(28px,5vw,52px);line-height:1.15;font-weight:600;letter-spacing:-0.04em;max-width:22em;text-wrap:balance}
+  .tagline .rw{transition:opacity .6s var(--curve)}
+  .fx .tagline .rw{opacity:.28}
+  .fx .tagline .rw.on{opacity:1}
+
+  /* Qué hace: cada paso se enciende al llegar al centro */
+  .qh-steps .step-item{position:relative}
+  .qh-steps .step-item::after{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--mark);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--curve)}
+  .fx .qh-steps .step-item{opacity:.35;transition:opacity .6s var(--curve)}
+  .fx .qh-steps .step-item.on{opacity:1}
+  .qh-steps .step-item.on::after{transform:scaleX(1)}
+  .qh-steps .step-item:first-child::after{display:none}
+
+  /* Planes: brillo que sigue al cursor y leve elevación */
+  .plan{transition:transform .5s var(--curve),box-shadow .5s var(--curve)}
+  .plan::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s var(--curve);background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),rgba(229,56,59,.14),transparent 70%)}
+  @media(hover:hover){
+    .plan:hover{transform:translateY(-4px);box-shadow:var(--sh-4)}
+    .plan.destacado:hover{box-shadow:0 0 0 2px var(--brand),var(--sh-4)}
+    .plan:hover::after{opacity:1}
+  }
+
+  /* Calculadora: el resultado respira al cambiar */
+  .calc-out b{display:inline-block;font-variant-numeric:tabular-nums}
+
+  /* Botones: respuesta física */
+  .cta{transition:transform .3s var(--curve),box-shadow .3s var(--curve),background .3s var(--curve)}
+  .cta:active{transform:scale(.98)}
+
+  @media (prefers-reduced-motion: reduce){
+    .fx .hero h1 .w{opacity:1 !important;transform:none !important;animation:none !important}
+    .fx .tagline .rw{opacity:1 !important}
+    .fx .qh-steps .step-item{opacity:1 !important}
+    .qh-steps .step-item::after{transform:scaleX(1) !important}
+    .plan,.plan:hover{transform:none !important}
+  }
+</style>
 </head>
 <body>
+<a class="skip" href="#top">Saltar al contenido</a>
 
 <div class="progress" id="progress"></div>
 
@@ -593,7 +647,7 @@
       <div class="reveal-group">
         <div class="pillar reveal">
           <span class="eyebrow">Misión</span>
-          <p class="long">Eliminar la carga operativa de la atención de consultas, para que tu negocio dedique su tiempo a desarrollar el negocio de la forma más eficiente.</p>
+          <p class="long">Eliminar la carga operativa de la atención de consultas, para que tu negocio dedique su tiempo a crecer de la forma más eficiente.</p>
         </div>
         <div class="pillar reveal">
           <span class="eyebrow">Visión</span>
@@ -652,6 +706,12 @@
         <div class="compare-col compare-new" data-l="Con RespondeYA">Recibe un resumen: qué busca, para qué y cuándo puede.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="roomy tagline" id="frase" aria-label="Qué hace el agente y qué queda en tu equipo">
+  <div class="wide">
+    <p id="fraseCentral">Tu equipo se queda con las visitas y el cierre. El agente atiende, califica y agenda lo que hoy llega fuera de horario.</p>
   </div>
 </section>
 
@@ -819,6 +879,7 @@
 <script>
 (function(){
   "use strict";
+  var reduced = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   // La configuración (número de WhatsApp, planes, formulario) vive en config.js
   var C = window.RESPONDEYA || {};
@@ -868,14 +929,25 @@
   if(c1 && c2 && c3){
     var nf = new Intl.NumberFormat('es-AR');
     var nd = new Intl.NumberFormat('es-AR', {minimumFractionDigits:1, maximumFractionDigits:1});
+    function tween(el, to, fmt){
+      var from = el._v || 0; el._v = to;
+      if(reduced){ el.textContent = fmt(to); return; }
+      cancelAnimationFrame(el._r);
+      var t0 = performance.now(), d = 450;
+      (function paso(t){
+        var k = Math.min((t - t0) / d, 1), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = fmt(k < 1 ? from + (to - from) * e : to);
+        if(k < 1) el._r = requestAnimationFrame(paso);
+      })(t0);
+    }
     function calcular(){
       var a = +c1.value, b = +c2.value, h = +c3.value;
       var ops = a * b / 100;
       document.getElementById('o1').textContent = nf.format(a);
       document.getElementById('o2').textContent = b + '%';
       document.getElementById('o3').textContent = nf.format(h);
-      document.getElementById('r1').textContent = nd.format(ops);
-      document.getElementById('r2').textContent = 'USD ' + nf.format(Math.round(ops * h));
+      tween(document.getElementById('r1'), ops, function(v){ return nd.format(v); });
+      tween(document.getElementById('r2'), Math.round(ops * h), function(v){ return 'USD ' + nf.format(Math.round(v)); });
     }
     [c1, c2, c3].forEach(function(el){ el.addEventListener('input', calcular); });
     calcular();
@@ -935,6 +1007,68 @@
     });
   }, {threshold:.15, rootMargin:'0px 0px -10% 0px'});
   revealEls.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script id="fxjs">
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hay = 'IntersectionObserver' in window;
+  root.classList.add('fx');
+
+  // Titular del hero palabra por palabra
+  var h1 = document.querySelector('.hero h1');
+  if(h1 && !quieto){
+    var txt = h1.textContent.trim().split(/\s+/);
+    h1.setAttribute('aria-label', h1.textContent.trim());
+    h1.innerHTML = txt.map(function(w, i){ return '<span class="w" aria-hidden="true" style="--i:' + i + '">' + w + '</span>'; }).join(' ');
+  }
+
+  // Frase central: palabras que se encienden en orden
+  var fr = document.getElementById('fraseCentral');
+  if(fr){
+    var t = fr.textContent.trim();
+    fr.setAttribute('aria-label', t);
+    fr.innerHTML = t.split(/\s+/).map(function(w){ return '<span class="rw" aria-hidden="true">' + w + '</span>'; }).join(' ');
+    var ws = fr.querySelectorAll('.rw');
+    if(!hay || quieto){ ws.forEach(function(w){ w.classList.add('on'); }); }
+    else {
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ e.target.classList.toggle('on', e.isIntersecting || e.boundingClientRect.top < 0); });
+      }, {rootMargin:'0px 0px -42% 0px', threshold:0});
+      ws.forEach(function(w){ io.observe(w); });
+    }
+  }
+
+  // Qué hace: cada paso se enciende al llegar al centro de la pantalla
+  var pasos = document.querySelectorAll('.qh-steps .step-item');
+  if(pasos.length){
+    if(!hay || quieto){ pasos.forEach(function(p){ p.classList.add('on'); }); }
+    else {
+      var ip = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting || e.boundingClientRect.top < 0) e.target.classList.add('on'); });
+      }, {rootMargin:'0px 0px -38% 0px', threshold:0});
+      pasos.forEach(function(p){ ip.observe(p); });
+    }
+  }
+
+  // Planes: brillo que sigue al cursor (solo con mouse)
+  var pl = document.getElementById('plans');
+  if(pl && window.matchMedia && window.matchMedia('(hover: hover)').matches){
+    var raf = 0, ult = null;
+    pl.addEventListener('pointermove', function(e){
+      var c = e.target.closest ? e.target.closest('.plan') : null; if(!c) return;
+      ult = {c:c, x:e.clientX, y:e.clientY};
+      if(raf) return;
+      raf = requestAnimationFrame(function(){
+        raf = 0; var r = ult.c.getBoundingClientRect();
+        ult.c.style.setProperty('--mx', (ult.x - r.left) + 'px');
+        ult.c.style.setProperty('--my', (ult.y - r.top) + 'px');
+      });
+    }, {passive:true});
+  }
 })();
 </script>
 </body>
